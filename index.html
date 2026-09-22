@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TRAINING OS — Почему я не прогрессирую?</title>
+<style>
+:root {
+  --bg:#070a0c; --panel:#0d1215; --paper:#eceeec; --ink:#0e1316;
+  --white:#f2f3f0; --muted:#9aa4aa; --line:#333d42; --line-light:#c7ccce;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#040607;color:var(--white);font-family:Arial,Helvetica,sans-serif}
+a{color:inherit}
+.site{max-width:1600px;margin:0 auto;background:#090d10;overflow:hidden}
+.nav{height:74px;display:flex;align-items:center;justify-content:space-between;padding:0 4.8%;position:absolute;inset:0 0 auto 0;z-index:10;border-bottom:1px solid rgba(255,255,255,.12)}
+.brand{font-weight:900;letter-spacing:.15em;font-size:18px}
+.navlinks{display:flex;gap:30px;font-size:10px;letter-spacing:.17em;color:#c1c7ca}
+.navcta{border:1px solid #6f7a80;padding:11px 18px;text-decoration:none;font-size:11px;letter-spacing:.1em}
+.hero{position:relative;min-height:930px;display:grid;grid-template-columns:47% 53%;background:#070a0c}
+.hero-copy{position:relative;z-index:4;padding:145px 7% 160px 10.2%;display:flex;flex-direction:column;justify-content:center}
+.hero-media{position:relative;overflow:hidden}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:58% center;filter:grayscale(.88) contrast(1.07);display:block}
+.hero-media:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,#070a0c 0%,rgba(7,10,12,.64) 14%,rgba(7,10,12,.04) 48%),linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.38))}
+.kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#a7b0b5;font-weight:800}
+h1,h2,h3{font-family:"Arial Narrow",Impact,Arial,sans-serif;text-transform:uppercase;letter-spacing:-.045em;line-height:.9;margin:.18em 0 .35em}
+h1{font-size:clamp(70px,7.9vw,126px);max-width:760px}
+h2{font-size:clamp(46px,5.1vw,80px)}
+h3{font-size:28px}
+.lead{font-size:clamp(24px,2.2vw,34px);font-weight:800;line-height:1.14;max-width:700px}
+p{font-size:18px;line-height:1.55;max-width:760px}
+.btn{display:inline-flex;align-items:center;gap:30px;width:max-content;margin-top:26px;background:#f1f2ef;color:#0a0e10;text-decoration:none;padding:17px 22px;font-weight:900;border:1px solid #fff}
+.btn:after{content:"→";font-size:24px}
+.benefits{position:absolute;left:10.2%;right:4.8%;bottom:34px;z-index:5;display:flex;gap:28px;flex-wrap:wrap}
+.benefit{display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.04em}
+.benefit i{width:31px;height:31px;border:1px solid #6e787d;border-radius:50%;display:grid;place-items:center;font-style:normal}
+.section{position:relative;padding:90px 6.5%;border-top:1px solid #2a3236;min-height:620px}
+.light{background:var(--paper);color:var(--ink);border-color:var(--line-light)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.num{font:300 56px/1 "Arial Narrow",Arial;color:#b4babd;margin-bottom:14px}
+.light .num{color:#313a3f}
+.media-frame{height:520px;overflow:hidden;border:1px solid #394247;position:relative;background:#111}
+.media-frame img{width:100%;height:100%;object-fit:cover;object-position:center;filter:grayscale(.92) contrast(1.04);display:block}
+.media-frame:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.15))}
+.metric{display:grid;grid-template-columns:repeat(4,1fr);max-width:630px;border:1px solid #596369;margin:30px 0}
+.metric span{padding:19px;text-align:center;border-right:1px solid #596369;font:800 22px/1 monospace}
+.metric span:last-child{border-right:0}
+.flow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:30px}
+.flow b{padding:17px 19px;border:1px solid #465158;font-size:13px;letter-spacing:.09em}
+.flow i{font-style:normal;color:#8e999f}
+.steps{border-top:1px solid #303a3f;margin-top:26px}
+.step{display:grid;grid-template-columns:56px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid #303a3f}
+.step b{font-family:monospace;font-size:13px}
+.light .steps,.light .step{border-color:#c5cbcd}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
+.result-card{border:1px solid #c1c7c9;background:#e0e2e0;padding:22px}
+.result-card b{display:block;margin-bottom:8px}
+.device{background:#070b0d;border:1px solid #556168;border-radius:24px;padding:18px;transform:rotate(2deg);box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.device-inner{background:#11181c;border-radius:11px;padding:24px}
+.device label{display:block;font-size:11px;color:#aab3b7;margin:16px 0 6px}
+.fake{background:#eef0ed;color:#101416;padding:12px}
+.final{min-height:640px;display:grid;grid-template-columns:1fr 1fr;padding:0}
+.final-copy{padding:90px 7%;display:flex;flex-direction:column;justify-content:center}
+.final-media{overflow:hidden}
+.final-media img{width:100%;height:100%;object-fit:cover;object-position:center;filter:grayscale(.9) contrast(1.05)}
+.footer{display:flex;justify-content:space-between;padding:29px 4.8%;border-top:1px solid #2c3438;font-size:10px;letter-spacing:.15em;color:#9aa5aa}
+@media(max-width:860px){
+  .navlinks{display:none} .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-media{height:460px;order:-1} .hero-copy{padding:110px 7% 170px}
+  .benefits{left:7%;bottom:34px;gap:15px}
+  .split,.final{grid-template-columns:1fr} .section{padding:64px 7%;min-height:auto}
+  .media-frame{height:340px} .result-grid{grid-template-columns:1fr}
+  .final-media{height:360px} h1{font-size:clamp(56px,14vw,88px)} h2{font-size:clamp(40px,10vw,62px)}
+}
+</style>
+</head>
+<body>
+<main class="site">
+<header class="nav">
+  <div class="brand">TRAINING OS</div>
+  <div class="navlinks"><span>СИСТЕМА</span><span>ДАННЫЕ</span><span>РЕШЕНИЯ</span><span>FAQ</span></div>
+  <a class="navcta" href="book.html">ОТКРЫТЬ КНИГУ →</a>
+</header>
+
+<section class="hero">
+  <div class="hero-copy">
+    <div class="kicker">СИСТЕМА ТРЕНИРОВОЧНЫХ РЕШЕНИЙ</div>
+    <h1>Почему я не прогрессирую?</h1>
+    <div class="lead">Не меняй всё сразу.<br>Сначала разберись, что стоит проверить.</div>
+    <p>WEB-BOOK для тех, кто регулярно тренируется, но не понимает, почему перестали расти рабочие показатели и что менять дальше.</p>
+    <a class="btn" href="book.html">РАЗОБРАТЬ СВОЮ СИТУАЦИЮ</a>
+  </div>
+  <div class="hero-media"><img src="https://images.unsplash.com/photo-1534367610401-9f5ed68180aa?auto=format&fit=crop&w=2400&q=90" alt=""></div>
+  <div class="benefits">
+    <div class="benefit"><i>◫</i><span>СОБСТВЕННЫЙ РАЗБОР</span></div>
+    <div class="benefit"><i>≡</i><span>ПОШАГОВАЯ СИСТЕМА</span></div>
+    <div class="benefit"><i>◎</i><span>КОНКРЕТНЫЙ ПЛАН</span></div>
+    <div class="benefit"><i>✓</i><span>МЕНЬШЕ ДОГАДОК</span></div>
+  </div>
+</section>
+
+<section class="section light">
+  <div class="split">
+    <div>
+      <div class="num">01</div><div class="kicker">ЗНАКОМАЯ СИТУАЦИЯ?</div>
+      <h2>Тренируешься регулярно. Но прогресс остановился.</h2>
+      <p>Программа есть. Упражнения знаешь. В зале не первый месяц. Но в какой-то момент веса стоят, повторения не растут, и появляется больше вопросов, чем ответов.</p>
+      <div class="metric"><span>80×8</span><span>80×8</span><span>80×7</span><span>?</span></div>
+      <p>Добавить объём? Сменить программу? Тренироваться тяжелее? Сделать разгрузку? Больше есть? Больше спать?</p>
+    </div>
+    <div class="media-frame"><img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=2200&q=90" alt=""></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="split">
+    <div>
+      <div class="num">02</div><div class="kicker">ОДНО ИЗМЕНЕНИЕ</div>
+      <h2>Проверка. Новое решение.</h2>
+      <p>Если одновременно поменять всё, потом трудно понять, какое изменение повлияло на результат. Поэтому система строится вокруг одного понятного теста.</p>
+      <div class="flow"><b>ONE CHANGE</b><i>→</i><b>TEST</b><i>→</i><b>REASSESS</b></div>
+    </div>
+    <div class="media-frame"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=2200&q=90" alt=""></div>
+  </div>
+</section>
+
+<section class="section light">
+  <div class="split">
+    <div>
+      <div class="num">03</div><div class="kicker">КАК РАБОТАЕТ СИСТЕМА</div>
+      <h2>Ты проходишь свой случай по чёткой карте.</h2>
+      <p>Берёшь один показатель, который хочешь разобрать, и постепенно проходишь его через ключевые области.</p>
+      <div class="steps">
+        <div class="step"><b>01</b><span>Данные</span></div><div class="step"><b>02</b><span>Выполнение программы</span></div>
+        <div class="step"><b>03</b><span>Прогрессия</span></div><div class="step"><b>04</b><span>Нагрузка</span></div>
+        <div class="step"><b>05</b><span>Масштаб проблемы</span></div><div class="step"><b>06</b><span>Хронология</span></div>
+        <div class="step"><b>07</b><span>Восстановление</span></div><div class="step"><b>08</b><span>Питание</span></div>
+        <div class="step"><b>09</b><span>Гипотезы</span></div><div class="step"><b>10</b><span>Первая проверка</span></div>
+      </div>
+    </div>
+    <div class="media-frame"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=2200&q=90" alt=""></div>
+  </div>
+</section>
+
+<section class="section light">
+  <div class="split">
+    <div>
+      <div class="num">04</div><div class="kicker">ТВОЙ РЕЗУЛЬТАТ</div>
+      <h2>К концу у тебя собран конкретный план.</h2>
+      <div class="result-grid">
+        <div class="result-card"><b>МОЯ ЦЕЛЬ</b>Что пытаюсь улучшить.</div>
+        <div class="result-card"><b>МОЙ ПОКАЗАТЕЛЬ</b>Что перестало двигаться.</div>
+        <div class="result-card"><b>МАСШТАБ</b>Локальная проблема или более общая.</div>
+        <div class="result-card"><b>ГИПОТЕЗЫ</b>Что действительно стоит рассматривать.</div>
+        <div class="result-card"><b>ПЕРВАЯ ПРОВЕРКА</b>С чего начинаю и почему.</div>
+        <div class="result-card"><b>ОТСЛЕЖИВАЮ</b>По каким данным приму следующее решение.</div>
+      </div>
+    </div>
+    <div class="device">
+      <div class="device-inner">
+        <div class="kicker">МОЙ РАЗБОР</div><h3>Жим лёжа</h3>
+        <div class="metric" style="grid-template-columns:repeat(3,1fr)"><span>80×8</span><span>80×8</span><span>80×7</span></div>
+        <label>Рабочая гипотеза</label><div class="fake">Система прогрессии</div>
+        <label>План первой проверки</label><div class="fake">Меняю один фактор. Остальные условия сохраняю. Отслеживаю выбранные показатели.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="final-copy">
+    <div class="num">05</div><div class="kicker">НАЧАТЬ</div>
+    <h2>Меньше догадок.<br>Больше ясности.</h2>
+    <p class="lead">После прохождения ты понимаешь, что проверяешь первым, почему выбрал именно этот фактор и какие данные будешь отслеживать.</p>
+    <a class="btn" href="book.html">ОТКРЫТЬ КНИГУ</a>
+  </div>
+  <div class="final-media"><img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?auto=format&fit=crop&w=2200&q=90" alt=""></div>
+</section>
+
+<footer class="footer"><b>TRAINING OS</b><span>ONE CHANGE → TEST → REASSESS</span></footer>
+</main>
+</body>
+</html>
