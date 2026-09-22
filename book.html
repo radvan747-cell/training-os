@@ -3,37 +3,2263 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>TRAINING OS</title>
+<meta name="color-scheme" content="light dark">
+<title>TRAINING OS — Почему я не прогрессирую?</title>
 <style>
-html,body{margin:0;background:#101010;color:#f5f3ed;font-family:Arial,Helvetica,sans-serif}
-.wrap{min-height:100vh;display:grid;place-items:center;padding:24px;text-align:center}
-small{opacity:.65}
+:root{--paper:#f2f0ea;--ink:#111;--muted:#77746f;--dark:#101010;--white:#f5f3ed;--acid:#d8ff47}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+.book{max-width:1280px;margin:auto;background:var(--paper)}
+.screen{position:relative;min-height:92vh;border-bottom:1px solid currentColor;padding:52px 5.5% 60px;overflow:hidden}
+.dark{background:var(--dark);color:var(--white)}
+.meta{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.18em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:12px;margin-bottom:44px}
+.meta .soft{opacity:.55}
+h1,h2,h3{margin:0;text-transform:uppercase;letter-spacing:-.055em;line-height:.9;font-family:"Arial Narrow",Impact,Arial,sans-serif}
+h1{font-size:clamp(70px,10vw,150px);max-width:1040px}
+h2{font-size:clamp(48px,7.4vw,98px);max-width:960px}
+h3{font-size:30px}
+p{font-size:18px;line-height:1.55;max-width:760px}.lead{font-size:clamp(24px,2.8vw,38px);line-height:1.16;font-weight:800;max-width:820px}
+.kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;margin-bottom:14px}
+.oversize{font:900 clamp(88px,15vw,210px)/.78 "Arial Narrow",Impact,Arial;letter-spacing:-.07em}
+.grid2{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:start}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.box{border:1px solid currentColor;padding:18px 18px 20px}.box.black{background:#111;color:#fff}
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:34px}.strip div{border-top:1px solid currentColor;padding-top:12px;font-size:12px;text-transform:uppercase;letter-spacing:.07em}
+.data{font:900 clamp(34px,6vw,78px)/1 monospace;letter-spacing:-.06em;margin:26px 0}
+.rule{border-top:1px solid currentColor;border-bottom:1px solid currentColor;padding:18px 0;margin:28px 0;font-size:clamp(26px,4vw,48px);font-weight:900;line-height:1.05}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0}.pill{border:1px solid currentColor;border-radius:999px;padding:10px 16px;font-size:12px;font-weight:800}
+.map{margin-top:24px;border-top:1px solid currentColor}.maprow{display:grid;grid-template-columns:54px 1fr;padding:15px 0;border-bottom:1px solid currentColor}.maprow b{font-family:monospace}
+.asym{display:grid;grid-template-columns:.7fr 1.3fr;gap:16px;align-items:end}.note{font:20px/1.3 Georgia,serif;font-style:italic;max-width:320px}
+.question{margin:28px 0;border-left:8px solid currentColor;padding:4px 0 4px 18px;font-size:clamp(28px,4.2vw,50px);font-weight:900;line-height:1.03;max-width:900px}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:26px}.compare .side{border:1px solid currentColor;padding:22px;min-height:180px}
+.form{border:1px solid currentColor;padding:22px}.form label{display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin:15px 0 6px}
+.form input,.form textarea{width:100%;background:transparent;color:inherit;border:1px solid currentColor;padding:12px;font:inherit;border-radius:0}.form textarea{min-height:88px;resize:vertical}
+.kinetic{display:inline-block;animation:drift 6s ease-in-out infinite alternate}@keyframes drift{from{transform:translateX(0)}to{transform:translateX(18px)}}
+.acid{display:inline-block;background:var(--acid);color:#111;padding:.05em .16em}
+.footer{position:absolute;left:5.5%;right:5.5%;bottom:20px;display:flex;justify-content:space-between;font-size:9px;letter-spacing:.15em;text-transform:uppercase}
+
+
+:root{--paper:#f2f0ea;--ink:#111;--muted:#77746f;--dark:#101010;--white:#f5f3ed;--acid:#d8ff47}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+.book{max-width:1280px;margin:auto;background:var(--paper)}
+.screen{position:relative;min-height:92vh;border-bottom:1px solid currentColor;padding:52px 5.5% 60px;overflow:hidden}
+.dark{background:var(--dark);color:var(--white)}
+.meta{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.18em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:12px;margin-bottom:44px}
+.meta .soft{opacity:.55}
+h1,h2,h3{margin:0;text-transform:uppercase;letter-spacing:-.055em;line-height:.9;font-family:"Arial Narrow",Impact,Arial,sans-serif}
+h2{font-size:clamp(48px,7.4vw,98px);max-width:960px}
+h3{font-size:30px}
+p{font-size:18px;line-height:1.55;max-width:760px}.lead{font-size:clamp(24px,2.8vw,38px);line-height:1.16;font-weight:800;max-width:820px}
+.kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;margin-bottom:14px}
+.oversize{font:900 clamp(88px,15vw,210px)/.78 "Arial Narrow",Impact,Arial;letter-spacing:-.07em}
+.grid2{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:start}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.box{border:1px solid currentColor;padding:18px 18px 20px}.box.black{background:#111;color:#fff}.box.accent{background:var(--acid);color:#111;border-color:#111}
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:34px}.strip div{border-top:1px solid currentColor;padding-top:12px;font-size:12px;text-transform:uppercase;letter-spacing:.07em}
+.data{font:900 clamp(34px,6vw,78px)/1 monospace;letter-spacing:-.06em;margin:26px 0}
+.rule{border-top:1px solid currentColor;border-bottom:1px solid currentColor;padding:18px 0;margin:28px 0;font-size:clamp(26px,4vw,48px);font-weight:900;line-height:1.05}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0}.pill{border:1px solid currentColor;border-radius:999px;padding:10px 16px;font-size:12px;font-weight:800}
+.map{margin-top:24px;border-top:1px solid currentColor}.maprow{display:grid;grid-template-columns:54px 1fr;padding:15px 0;border-bottom:1px solid currentColor}.maprow b{font-family:monospace}
+.asym{display:grid;grid-template-columns:.72fr 1.28fr;gap:16px;align-items:end}.note{font:20px/1.3 Georgia,serif;font-style:italic;max-width:320px}
+.question{margin:28px 0;border-left:8px solid currentColor;padding:4px 0 4px 18px;font-size:clamp(28px,4.2vw,50px);font-weight:900;line-height:1.03;max-width:900px}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:26px}.compare .side{border:1px solid currentColor;padding:22px;min-height:180px}
+.form{border:1px solid currentColor;padding:22px}.form label{display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin:15px 0 6px}
+.form input,.form textarea{width:100%;background:transparent;color:inherit;border:1px solid currentColor;padding:12px;font:inherit;border-radius:0}.form textarea{min-height:88px;resize:vertical}
+.week{display:grid;grid-template-columns:1fr 120px 100px;gap:0;border-top:1px solid currentColor;margin-top:28px}
+.week div{padding:13px 10px;border-bottom:1px solid currentColor}.week .head{font-size:10px;text-transform:uppercase;letter-spacing:.12em;font-weight:800}
+.vs{display:grid;grid-template-columns:1fr 90px 1fr;gap:12px;align-items:stretch;margin-top:28px}.vsmark{display:grid;place-items:center;font:900 32px "Arial Narrow",Impact,Arial}
+.check{padding:12px 0;border-bottom:1px solid currentColor}.check b{display:block;margin-bottom:4px}
+.progressline{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:28px 0}.progressline .step{border:1px solid currentColor;padding:16px 18px;font:900 22px monospace}.progressline i{font-style:normal;font-size:24px}
+.kinetic{display:inline-block;animation:drift 6s ease-in-out infinite alternate}@keyframes drift{from{transform:translateX(0)}to{transform:translateX(18px)}}
+.acidtext{display:inline-block;background:var(--acid);color:#111;padding:.05em .16em}
+.footer{position:absolute;left:5.5%;right:5.5%;bottom:20px;display:flex;justify-content:space-between;font-size:9px;letter-spacing:.15em;text-transform:uppercase}
+small{font-size:12px;line-height:1.35}
+
+
+:root{--paper:#f2f0ea;--ink:#111;--muted:#77746f;--dark:#101010;--white:#f5f3ed;--acid:#d8ff47}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+.book{max-width:1280px;margin:auto;background:var(--paper)}
+.screen{position:relative;min-height:92vh;border-bottom:1px solid currentColor;padding:52px 5.5% 60px;overflow:hidden}
+.dark{background:var(--dark);color:var(--white)}
+.meta{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.18em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:12px;margin-bottom:44px}
+.meta .soft{opacity:.55}
+h2,h3{margin:0;text-transform:uppercase;letter-spacing:-.055em;line-height:.9;font-family:"Arial Narrow",Impact,Arial,sans-serif}
+h2{font-size:clamp(48px,7.4vw,98px);max-width:960px}
+h3{font-size:30px}
+p{font-size:18px;line-height:1.55;max-width:760px}.lead{font-size:clamp(24px,2.8vw,38px);line-height:1.16;font-weight:800;max-width:820px}
+.kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;margin-bottom:14px}
+.oversize{font:900 clamp(88px,15vw,210px)/.78 "Arial Narrow",Impact,Arial;letter-spacing:-.07em}
+.grid2{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:start}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.box{border:1px solid currentColor;padding:18px 18px 20px}.box.black{background:#111;color:#fff}.box.accent{background:var(--acid);color:#111;border-color:#111}
+.data{font:900 clamp(34px,6vw,78px)/1 monospace;letter-spacing:-.06em;margin:26px 0}
+.rule{border-top:1px solid currentColor;border-bottom:1px solid currentColor;padding:18px 0;margin:28px 0;font-size:clamp(26px,4vw,48px);font-weight:900;line-height:1.05}
+.question{margin:28px 0;border-left:8px solid currentColor;padding:4px 0 4px 18px;font-size:clamp(28px,4.2vw,50px);font-weight:900;line-height:1.03;max-width:900px}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:26px}.compare .side{border:1px solid currentColor;padding:22px;min-height:180px}
+.matrix{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:26px}.matrix .cell{border:1px solid currentColor;padding:18px}.matrix b{display:block;font:900 34px monospace;margin-bottom:8px}
+.scale{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:26px}.scale .side{border:1px solid currentColor;padding:22px}.score{font:900 58px monospace;margin-bottom:6px}
+.map{margin-top:24px;border-top:1px solid currentColor}.maprow{display:grid;grid-template-columns:54px 1fr;padding:15px 0;border-bottom:1px solid currentColor}.maprow b{font-family:monospace}
+.flow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:26px 0}.flow .step{border:1px solid currentColor;padding:14px 16px;font-size:12px;font-weight:800;text-transform:uppercase}.flow i{font-style:normal;font-size:22px}
+.hyp{border:1px solid currentColor;padding:22px;margin-top:24px}.hyp .main{font-size:clamp(28px,4vw,48px);font-weight:900;line-height:1.06}
+.timeline{display:grid;grid-template-columns:1fr 70px 1fr;gap:12px;align-items:stretch;margin-top:26px}.timeline .side{border:1px solid currentColor;padding:22px}.arrow{display:grid;place-items:center;font-size:30px}
+.footer{position:absolute;left:5.5%;right:5.5%;bottom:20px;display:flex;justify-content:space-between;font-size:9px;letter-spacing:.15em;text-transform:uppercase}
+small{font-size:12px;line-height:1.35}
+
+
+:root{--paper:#f2f0ea;--ink:#111;--muted:#77746f;--dark:#101010;--white:#f5f3ed;--acid:#d8ff47}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+.book{max-width:1280px;margin:auto;background:var(--paper)}
+.screen{position:relative;min-height:92vh;border-bottom:1px solid currentColor;padding:52px 5.5% 60px;overflow:hidden}
+.dark{background:var(--dark);color:var(--white)}
+.meta{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.18em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:12px;margin-bottom:44px}
+.meta .soft{opacity:.55}
+h2,h3{margin:0;text-transform:uppercase;letter-spacing:-.055em;line-height:.9;font-family:"Arial Narrow",Impact,Arial,sans-serif}
+h2{font-size:clamp(48px,7.4vw,98px);max-width:960px}
+h3{font-size:30px}
+p{font-size:18px;line-height:1.55;max-width:760px}.lead{font-size:clamp(24px,2.8vw,38px);line-height:1.16;font-weight:800;max-width:820px}
+.kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;margin-bottom:14px}
+.oversize{font:900 clamp(88px,15vw,210px)/.78 "Arial Narrow",Impact,Arial;letter-spacing:-.07em}
+.grid2{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:start}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.box{border:1px solid currentColor;padding:18px 18px 20px}.box.black{background:#111;color:#fff}.box.accent{background:var(--acid);color:#111;border-color:#111}
+.data{font:900 clamp(34px,6vw,78px)/1 monospace;letter-spacing:-.06em;margin:26px 0}
+.rule{border-top:1px solid currentColor;border-bottom:1px solid currentColor;padding:18px 0;margin:28px 0;font-size:clamp(26px,4vw,48px);font-weight:900;line-height:1.05}
+.question{margin:28px 0;border-left:8px solid currentColor;padding:4px 0 4px 18px;font-size:clamp(28px,4.2vw,50px);font-weight:900;line-height:1.03;max-width:900px}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:26px}.compare .side{border:1px solid currentColor;padding:22px;min-height:180px}
+.timeline{display:grid;grid-template-columns:1fr 70px 1fr;gap:12px;align-items:stretch;margin-top:26px}.timeline .side{border:1px solid currentColor;padding:22px}.arrow{display:grid;place-items:center;font-size:30px}
+.stack{display:grid;gap:12px;margin-top:24px}.stack .row{display:grid;grid-template-columns:54px 1fr;border-top:1px solid currentColor;padding-top:13px}.stack b{font-family:monospace}
+.form{border:1px solid currentColor;padding:22px}.form label{display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin:15px 0 6px}
+.form input,.form textarea{width:100%;background:transparent;color:inherit;border:1px solid currentColor;padding:12px;font:inherit;border-radius:0}.form textarea{min-height:88px;resize:vertical}
+.signal{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}.signal .cell{border:1px solid currentColor;padding:18px}.signal b{display:block;font:900 34px monospace;margin-bottom:6px}
+.footer{position:absolute;left:5.5%;right:5.5%;bottom:20px;display:flex;justify-content:space-between;font-size:9px;letter-spacing:.15em;text-transform:uppercase}
+small{font-size:12px;line-height:1.35}
+
+
+:root{--paper:#f2f0ea;--ink:#111;--muted:#77746f;--dark:#101010;--white:#f5f3ed;--acid:#d8ff47}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+.book{max-width:1280px;margin:auto;background:var(--paper)}
+.screen{position:relative;min-height:92vh;border-bottom:1px solid currentColor;padding:52px 5.5% 60px;overflow:hidden}
+.dark{background:var(--dark);color:var(--white)}
+.meta{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.18em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:12px;margin-bottom:44px}
+.meta .soft{opacity:.55}
+h2,h3{margin:0;text-transform:uppercase;letter-spacing:-.055em;line-height:.9;font-family:"Arial Narrow",Impact,Arial,sans-serif}
+h2{font-size:clamp(48px,7.4vw,98px);max-width:960px}
+h3{font-size:30px}
+p{font-size:18px;line-height:1.55;max-width:760px}.lead{font-size:clamp(24px,2.8vw,38px);line-height:1.16;font-weight:800;max-width:820px}
+.kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;margin-bottom:14px}
+.oversize{font:900 clamp(88px,15vw,210px)/.78 "Arial Narrow",Impact,Arial;letter-spacing:-.07em}
+.grid2{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:start}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.box{border:1px solid currentColor;padding:18px 18px 20px}.box.black{background:#111;color:#fff}.box.accent{background:var(--acid);color:#111;border-color:#111}
+.rule{border-top:1px solid currentColor;border-bottom:1px solid currentColor;padding:18px 0;margin:28px 0;font-size:clamp(26px,4vw,48px);font-weight:900;line-height:1.05}
+.question{margin:28px 0;border-left:8px solid currentColor;padding:4px 0 4px 18px;font-size:clamp(28px,4.2vw,50px);font-weight:900;line-height:1.03;max-width:900px}
+.map8{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:28px}
+.map8 .cell{border:1px solid currentColor;min-height:150px;padding:18px;display:flex;flex-direction:column;justify-content:space-between}
+.map8 b{font:900 34px monospace}.map8 span{font-size:14px;line-height:1.3}
+.hypgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
+.hyp{border:1px solid currentColor;padding:20px;min-height:220px}.hyp .n{font:900 40px monospace}.hyp .title{font-weight:900;font-size:21px;margin:12px 0}.hyp ul{padding-left:18px;margin:0}.hyp li{margin:7px 0;font-size:14px;line-height:1.35}
+.criteria{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}.criteria .cell{border-top:1px solid currentColor;padding-top:12px}.criteria b{display:block;font-size:13px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.form{border:1px solid currentColor;padding:22px}.form label{display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin:15px 0 6px}
+.form input,.form textarea{width:100%;background:transparent;color:inherit;border:1px solid currentColor;padding:12px;font:inherit;border-radius:0}.form textarea{min-height:88px;resize:vertical}
+.flow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:28px 0}.flow .step{border:1px solid currentColor;padding:16px 18px;font-size:12px;font-weight:800;text-transform:uppercase}.flow i{font-style:normal;font-size:24px}
+.bigmethod{font:900 clamp(52px,8vw,120px)/.86 "Arial Narrow",Impact,Arial;letter-spacing:-.055em;text-transform:uppercase;margin:28px 0}
+.footer{position:absolute;left:5.5%;right:5.5%;bottom:20px;display:flex;justify-content:space-between;font-size:9px;letter-spacing:.15em;text-transform:uppercase}
+small{font-size:12px;line-height:1.35}
+
+
+
+:root{--paper:#f2f0ea;--ink:#111;--muted:#77746f;--dark:#101010;--white:#f5f3ed;--acid:#d8ff47}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+.book{max-width:1280px;margin:auto;background:var(--paper)}
+.screen{position:relative;min-height:92vh;border-bottom:1px solid currentColor;padding:52px 5.5% 60px;overflow:hidden}
+.dark{background:var(--dark);color:var(--white)}
+.meta{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.18em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:12px;margin-bottom:44px}
+.meta .soft{opacity:.55}
+h2,h3{margin:0;text-transform:uppercase;letter-spacing:-.055em;line-height:.9;font-family:"Arial Narrow",Impact,Arial,sans-serif}
+h2{font-size:clamp(48px,7.4vw,98px);max-width:960px}
+h3{font-size:30px}
+p{font-size:18px;line-height:1.55;max-width:760px}.lead{font-size:clamp(24px,2.8vw,38px);line-height:1.16;font-weight:800;max-width:820px}
+.kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;margin-bottom:14px}
+.oversize{font:900 clamp(88px,15vw,210px)/.78 "Arial Narrow",Impact,Arial;letter-spacing:-.07em}
+.grid2{display:grid;grid-template-columns:1.02fr .98fr;gap:46px;align-items:start}
+.box{border:1px solid currentColor;padding:18px 18px 20px}.box.accent{background:var(--acid);color:#111;border-color:#111}
+.data{font:900 clamp(34px,6vw,78px)/1 monospace;letter-spacing:-.06em;margin:24px 0}
+.rule{border-top:1px solid currentColor;border-bottom:1px solid currentColor;padding:18px 0;margin:28px 0;font-size:clamp(26px,4vw,48px);font-weight:900;line-height:1.05}
+.question{margin:28px 0;border-left:8px solid currentColor;padding:4px 0 4px 18px;font-size:clamp(28px,4.2vw,50px);font-weight:900;line-height:1.03;max-width:900px}
+.casefacts{display:grid;gap:0;border-top:1px solid currentColor;margin-top:24px}.fact{display:grid;grid-template-columns:110px 1fr;border-bottom:1px solid currentColor;padding:13px 0}.fact b{font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.choose{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}.option{border:1px solid currentColor;padding:18px;cursor:pointer;transition:.18s}.option:hover,.option.active{background:var(--acid);color:#111;border-color:#111}.option b{display:block;margin-bottom:8px}
+.reveal{display:none;margin-top:18px;border:1px solid currentColor;padding:20px}.reveal.show{display:block}
+.reveal strong{display:block;font-size:13px;text-transform:uppercase;letter-spacing:.09em;margin-bottom:10px}
+.form{border:1px solid currentColor;padding:22px}.form label{display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin:15px 0 6px}
+.form textarea{width:100%;min-height:100px;background:transparent;color:inherit;border:1px solid currentColor;padding:12px;font:inherit;border-radius:0;resize:vertical}
+.footer{position:absolute;left:5.5%;right:5.5%;bottom:20px;display:flex;justify-content:space-between;font-size:9px;letter-spacing:.15em;text-transform:uppercase}
+small{font-size:12px;line-height:1.35}
+
+
+:root{--paper:#f2f0ea;--ink:#111;--muted:#77746f;--dark:#101010;--white:#f5f3ed;--acid:#d8ff47}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+.book{max-width:1280px;margin:auto;background:var(--paper)}
+.screen{position:relative;min-height:92vh;border-bottom:1px solid currentColor;padding:52px 5.5% 60px;overflow:hidden}
+.dark{background:var(--dark);color:var(--white)}
+.meta{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.18em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:12px;margin-bottom:44px}
+.meta .soft{opacity:.55}
+h2,h3{margin:0;text-transform:uppercase;letter-spacing:-.055em;line-height:.9;font-family:"Arial Narrow",Impact,Arial,sans-serif}
+h2{font-size:clamp(48px,7.4vw,98px);max-width:960px}
+h3{font-size:30px}
+p{font-size:18px;line-height:1.55;max-width:760px}.lead{font-size:clamp(24px,2.8vw,38px);line-height:1.16;font-weight:800;max-width:820px}
+.kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;margin-bottom:14px}
+.oversize{font:900 clamp(88px,15vw,210px)/.78 "Arial Narrow",Impact,Arial;letter-spacing:-.07em}
+.grid2{display:grid;grid-template-columns:1.02fr .98fr;gap:46px;align-items:start}
+.box{border:1px solid currentColor;padding:18px 18px 20px}.box.accent{background:var(--acid);color:#111;border-color:#111}
+.rule{border-top:1px solid currentColor;border-bottom:1px solid currentColor;padding:18px 0;margin:28px 0;font-size:clamp(26px,4vw,48px);font-weight:900;line-height:1.05}
+.question{margin:28px 0;border-left:8px solid currentColor;padding:4px 0 4px 18px;font-size:clamp(28px,4.2vw,50px);font-weight:900;line-height:1.03;max-width:900px}
+.form{border:1px solid currentColor;padding:22px}
+.form label{display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin:15px 0 6px}
+.form input,.form textarea{width:100%;background:transparent;color:inherit;border:1px solid currentColor;padding:12px;font:inherit;border-radius:0}
+.form textarea{min-height:88px;resize:vertical}
+.steps{display:grid;gap:0;border-top:1px solid currentColor;margin-top:24px}
+.step{display:grid;grid-template-columns:60px 1fr;border-bottom:1px solid currentColor;padding:15px 0}
+.step b{font:900 18px monospace}
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
+.timeline .cell{border:1px solid currentColor;padding:18px;min-height:150px}
+.timeline .cell b{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.outcomes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
+.outcomes .cell{border:1px solid currentColor;padding:18px;min-height:170px}
+.outcomes .cell h3{font-size:25px;margin-bottom:12px}
+.bigmethod{font:900 clamp(56px,9vw,132px)/.83 "Arial Narrow",Impact,Arial;letter-spacing:-.06em;text-transform:uppercase;margin:26px 0}
+.flow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:28px 0}.flow .stepbox{border:1px solid currentColor;padding:16px 18px;font-size:12px;font-weight:800;text-transform:uppercase}.flow i{font-style:normal;font-size:24px}
+.footer{position:absolute;left:5.5%;right:5.5%;bottom:20px;display:flex;justify-content:space-between;font-size:9px;letter-spacing:.15em;text-transform:uppercase}
+small{font-size:12px;line-height:1.35}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.actions button{appearance:none;border:1px solid currentColor;background:transparent;color:inherit;border-radius:999px;padding:11px 16px;font-weight:800;cursor:pointer}.actions button:hover{background:var(--acid);color:#111;border-color:#111}
+
+
+/* unified production safeguards */
+html{scroll-behavior:smooth}
+body{overflow-x:hidden}
+.book{width:100%}
+.screen{scroll-margin-top:0}
+.reveal{display:none}
+.reveal.show{display:block}
+.option{cursor:pointer}
+.option.active{background:var(--acid);color:#111;border-color:#111}
+
+
+.safety-screen{background:#e9e7df;color:#111}
+.safety-screen .box.black{background:#111;color:#f5f3ed}
+
+
+.guide-grid{grid-template-columns:repeat(2,1fr)}
+.guide-card{background:transparent;color:inherit;text-align:left;font:inherit;cursor:pointer}
+.guide-card:hover,.guide-card.active{background:var(--acid);color:#111;border-color:#111}
+.guide-card ul{padding-left:18px;margin:10px 0 0}
+.guide-card li{margin:7px 0;font-size:14px;line-height:1.35}
+
+
+
+
+html,body{max-width:100%;overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+.book{width:min(100%,1280px);margin:0 auto}
+.screen{width:100%;overflow:hidden;scroll-margin-top:18px}
+.screen *{min-width:0}
+img,svg,video,canvas{max-width:100%;height:auto}
+input,textarea,select,button{max-width:100%;font-size:16px}
+.summary-card{border-top:1px solid currentColor;margin-top:26px}
+.summary-row{display:grid;grid-template-columns:190px minmax(0,1fr);gap:18px;padding:14px 0;border-bottom:1px solid currentColor}
+.summary-row b{font-size:11px;text-transform:uppercase;letter-spacing:.08em}
+.summary-row span{font-size:15px;line-height:1.4;white-space:pre-wrap}
+.book-nav{position:fixed;top:16px;right:16px;z-index:1000;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.book-nav__toggle{border:1px solid #111;background:#f2f0ea;color:#111;border-radius:999px;padding:10px 14px;font-weight:800;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.1)}
+.book-nav__panel{display:none;min-width:220px;background:#111;color:#f5f3ed;border:1px solid #111;padding:8px;box-shadow:0 14px 36px rgba(0,0,0,.22)}
+.book-nav__panel.open{display:grid}
+.book-nav__panel a{color:inherit;text-decoration:none;padding:11px 12px;border-bottom:1px solid rgba(255,255,255,.16);font-size:13px;font-weight:800}
+.book-nav__panel a:last-child{border-bottom:0}
+.book-nav__panel a:hover{background:var(--acid);color:#111}
+.to-top{position:fixed;right:16px;bottom:16px;z-index:999;width:44px;height:44px;border-radius:50%;border:1px solid #111;background:#f2f0ea;color:#111;font-size:20px;font-weight:900;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.1)}
+
+
+
+
+
+/* step 7 · scenario and technical audit refinements */
+.form-note{
+  margin:8px 0 16px;
+  font-size:13px;
+  line-height:1.45;
+  opacity:.7;
+}
+.case-choice-status{
+  display:none;
+  margin-top:16px;
+  padding:10px 12px;
+  border:1px solid currentColor;
+  font-size:12px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+}
+.case-choice-status.show{display:block}
+.field-missing{
+  outline:2px solid var(--acid);
+  outline-offset:2px;
+}
+.protocol-readiness{
+  margin-top:18px;
+  border-top:1px solid currentColor;
+  padding-top:14px;
+  font-size:13px;
+  line-height:1.45;
+}
+.protocol-readiness b{display:block;margin-bottom:4px}
+
+
+
+html{
+  scroll-padding-top:74px;
+}
+body{
+  min-width:0;
+  overscroll-behavior-x:none;
+}
+.book,
+.screen,
+.screen > *{
+  min-width:0;
+  max-width:100%;
+}
+.screen{
+  contain:layout paint;
+}
+.screen p,
+.screen li,
+.screen span,
+.screen b,
+.screen small,
+.screen label,
+.screen div{
+  overflow-wrap:break-word;
+  word-break:normal;
+}
+.form,
+.box,
+.hyp,
+.side,
+.cell,
+.option,
+.guide-card{
+  min-width:0;
+  max-width:100%;
+}
+.form input,
+.form textarea,
+.form select{
+  width:100%;
+  min-width:0;
+  box-sizing:border-box;
+}
+textarea{
+  field-sizing:content;
+}
+.book-nav{
+  top:max(10px,env(safe-area-inset-top));
+  right:max(10px,env(safe-area-inset-right));
+}
+.to-top{
+  right:max(12px,env(safe-area-inset-right));
+  bottom:max(12px,env(safe-area-inset-bottom));
+}
+
+/* Prevent very long typographic compositions from breaking laptops */
+
+
+/* Tablet: simpler two-column system, no squeezed micro-columns */
+
+
+/* Phone: actual mobile composition instead of compressed desktop */
+
+
+/* Very narrow phones */
+
+
+
+
+
+/* Do not clip animated / oversized text at screen edges */
+.screen{
+  contain:none !important;
+}
+
+
+/* Extra-small phones */
+
+
+
+
+
+
+/* Extra narrow phones */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* FINAL RESPONSIVE SYSTEM — one source of truth */
+html{scroll-behavior:smooth;scroll-padding-top:74px;max-width:100%;overflow-x:hidden}
+body{max-width:100%;overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%;overscroll-behavior-x:none}
+.book{width:min(100%,1280px);max-width:1280px;margin:0 auto}
+.screen{width:100%;max-width:100%;min-width:0;overflow:hidden;scroll-margin-top:18px}
+.screen *{min-width:0}
+img,svg,video,canvas{max-width:100%;height:auto}
+input,textarea,select,button{max-width:100%;font-size:16px}
+.form input,.form textarea,.form select{width:100%;min-width:0;box-sizing:border-box}
+.summary-card{border-top:1px solid currentColor;margin-top:26px}
+.summary-row{display:grid;grid-template-columns:190px minmax(0,1fr);gap:18px;padding:14px 0;border-bottom:1px solid currentColor}
+.summary-row b{font-size:11px;text-transform:uppercase;letter-spacing:.08em}
+.summary-row span{font-size:15px;line-height:1.4;white-space:pre-wrap}
+.book-nav{position:fixed;top:max(16px,env(safe-area-inset-top));right:max(16px,env(safe-area-inset-right));z-index:1000;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.book-nav__toggle{border:1px solid #111;background:#f2f0ea;color:#111;border-radius:999px;padding:10px 14px;font-weight:800;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.10)}
+.book-nav__panel{display:none;min-width:220px;background:#111;color:#f5f3ed;border:1px solid #111;padding:8px;box-shadow:0 14px 36px rgba(0,0,0,.22)}
+.book-nav__panel.open{display:grid}
+.book-nav__panel a{color:inherit;text-decoration:none;padding:11px 12px;border-bottom:1px solid rgba(255,255,255,.16);font-size:13px;font-weight:800}
+.book-nav__panel a:last-child{border-bottom:0}.book-nav__panel a:hover{background:var(--acid);color:#111}
+.to-top{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:999;width:44px;height:44px;border-radius:50%;border:1px solid #111;background:#f2f0ea;color:#111;font-size:20px;font-weight:900;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.10)}
+.framework-ru{display:inline-block;font-family:Arial,Helvetica,sans-serif;font-size:.26em;letter-spacing:.02em;vertical-align:middle;opacity:.62;margin-left:.15em}
+
+@media (min-width:821px){
+  .screen{min-height:min(92vh,900px);padding-left:clamp(46px,5.5vw,72px);padding-right:clamp(46px,5.5vw,72px)}
+  .grid2{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr)}
+  .grid3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .compare{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hypgrid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .guide-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .map8{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .timeline{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .outcomes{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .matrix{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .signal{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .criteria{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+
+@media (min-width:561px) and (max-width:820px){
+  .screen{min-height:auto;padding:42px 28px 54px}
+  .grid2{grid-template-columns:1fr !important}
+  .grid3,.compare,.hypgrid,.guide-grid,.timeline,.outcomes,.matrix,.signal,.criteria,.scale{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+  .map8{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+  .flow,.progressline{display:grid !important;grid-template-columns:1fr !important;gap:8px !important}
+  .flow i,.progressline i{transform:rotate(90deg);text-align:center;line-height:1;margin:0 auto}
+  .flow .step,.flow .stepbox,.progressline .step{width:100% !important}
+  .summary-row{grid-template-columns:1fr;gap:5px}
+  .footer{position:static !important;display:grid;grid-template-columns:1fr;gap:6px;margin-top:30px}
+}
+
+@media (max-width:560px){
+  html{scroll-padding-top:62px}
+  .book{width:100%}
+  .screen{min-height:0 !important;padding:28px 14px 34px;overflow:hidden !important}
+  .meta{display:grid !important;grid-template-columns:minmax(0,1fr) auto;column-gap:10px;align-items:start;padding-bottom:9px;margin-bottom:20px;font-size:8.5px !important;line-height:1.25;letter-spacing:.12em}
+  .meta span:first-child{max-width:none !important;min-width:0}.meta .soft{white-space:nowrap;text-align:right}
+  .kicker{font-size:10px;letter-spacing:.14em;margin-bottom:9px}
+  h1{font-size:clamp(48px,15vw,70px) !important;line-height:.92 !important;letter-spacing:-.045em}
+  h2{font-size:clamp(36px,10.4vw,52px) !important;line-height:.95 !important;letter-spacing:-.04em;max-width:100%}
+  h3{font-size:24px !important;line-height:1}
+  p{font-size:16px !important;line-height:1.48 !important;margin-top:10px;margin-bottom:10px}
+  .lead{font-size:20px !important;line-height:1.22 !important;margin-top:14px !important;margin-bottom:16px !important}
+  .oversize{font-size:76px !important;line-height:.82 !important;margin:0 0 8px !important}
+  .data{font-size:clamp(26px,7.8vw,38px) !important;line-height:1.08 !important;letter-spacing:-.04em !important;margin:18px 0 !important;white-space:normal}
+  .question{margin:16px 0 !important;padding-left:13px !important;border-left-width:5px !important;font-size:clamp(23px,6.8vw,32px) !important;line-height:1.06 !important}
+  .rule{margin:16px 0 !important;padding:14px 0 !important;font-size:clamp(22px,6.3vw,30px) !important;line-height:1.05 !important}
+  .bigmethod{font-size:clamp(40px,11vw,58px) !important;line-height:.92 !important;letter-spacing:-.045em !important;margin:18px 0 !important}
+  .grid2,.grid3,.compare,.hypgrid,.guide-grid,.map8,.timeline,.outcomes,.matrix,.signal,.criteria,.scale,.vs,.asym,.strip{display:grid !important;grid-template-columns:minmax(0,1fr) !important;gap:9px !important}
+  .box,.hyp,.side,.cell,.form,.option,.guide-card{padding:16px !important;min-width:0;max-width:100%;margin:0 !important}
+  .maprow,.stack .row{grid-template-columns:36px minmax(0,1fr) !important;gap:8px}
+  .fact{grid-template-columns:minmax(0,1fr) !important;gap:3px !important}
+  .week{display:block !important;border-top:0 !important}.week .head{display:none !important}.week>div{padding:8px 0 !important;border-bottom:1px solid currentColor}
+  .flow,.progressline{display:grid !important;grid-template-columns:minmax(0,1fr) !important;gap:10px !important;width:100%}
+  .flow i,.progressline i{width:24px;margin:0 auto !important;transform:rotate(90deg);text-align:center;line-height:1}
+  .progressline .step{display:block !important;width:100% !important;box-sizing:border-box;padding:16px 18px !important;font-size:18px !important;line-height:1.08 !important;white-space:nowrap !important;word-break:normal !important;overflow-wrap:normal !important;letter-spacing:-.02em;text-align:left}
+  .flow .step,.flow .stepbox{display:block !important;width:100% !important;box-sizing:border-box;padding:14px 16px !important;font-size:15px !important;line-height:1.14 !important;white-space:normal !important;word-break:keep-all !important;overflow-wrap:normal !important;hyphens:none !important;text-align:left}
+  .summary-row{grid-template-columns:minmax(0,1fr) !important;gap:4px !important;padding:12px 0 !important}
+  .form label{margin-top:13px !important;line-height:1.35}.form input,.form textarea{font-size:16px !important;padding:11px !important}
+  .choose{grid-template-columns:minmax(0,1fr) !important;gap:9px !important}.option{min-height:0 !important}
+  .footer{position:static !important;display:flex !important;flex-direction:column;align-items:flex-start;gap:5px !important;margin-top:20px !important;font-size:8px !important;line-height:1.25}
+  .framework-ru{display:block;font-size:.22em;margin:.16em 0 .06em;line-height:1.1}
+  .book-nav{top:max(8px,env(safe-area-inset-top));right:max(8px,env(safe-area-inset-right))}.book-nav__toggle{padding:8px 11px !important;font-size:14px}.book-nav__toggle span{display:none}
+  .book-nav__panel{position:fixed;top:54px;right:8px;left:8px;width:auto;min-width:0 !important;max-height:calc(100dvh - 70px);overflow:auto;overscroll-behavior:contain}.book-nav__panel a{padding:12px 11px;font-size:14px}
+  .to-top{right:max(12px,env(safe-area-inset-right));bottom:max(12px,env(safe-area-inset-bottom));width:40px !important;height:40px !important;font-size:18px !important}
+  /* cover: big but guaranteed to fit */
+  .screen:first-of-type h1{font-size:clamp(32px,8.5vw,42px) !important;line-height:.92 !important;letter-spacing:-.05em !important;margin:0 !important;max-width:100% !important;overflow:visible !important}
+  .screen:first-of-type h1 .kinetic{display:block !important;width:100% !important;transform:none !important;animation:none !important;white-space:normal !important}
+  .screen:first-of-type h1 .acid,.screen:first-of-type h1 .acidtext{display:block !important;width:max-content !important;max-width:none !important;white-space:nowrap !important;font-size:clamp(46px,12.8vw,52px) !important;line-height:.92 !important;letter-spacing:-.065em !important;padding:.02em .06em !important;margin-top:.10em !important;overflow:visible !important;transform:scaleX(.84) !important;transform-origin:left center !important}
+}
+
+@media (max-width:390px){
+  .screen:first-of-type h1{font-size:30px !important}
+  .screen:first-of-type h1 .acid,.screen:first-of-type h1 .acidtext{font-size:46px !important;letter-spacing:-.07em !important;transform:scaleX(.82) !important}
+  .progressline .step{font-size:17px !important;padding:14px !important}
+  .flow .step,.flow .stepbox{font-size:14px !important;padding:13px 14px !important}
+}
+
+/* English stays as visual language; Russian meaning is always visible */
+.framework-ru{
+  display:inline-block;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:.25em;
+  line-height:1.05;
+  letter-spacing:.01em;
+  font-weight:700;
+  vertical-align:middle;
+  opacity:.68;
+  margin-left:.12em;
+}
+@media(max-width:560px){
+  .framework-ru{
+    display:block;
+    font-size:.24em;
+    margin:.18em 0 .04em;
+    line-height:1.08;
+  }
+  .footer span{
+    max-width:100%;
+  }
+}
+
+
+/* ===== FINAL ORIENTATION LAYER ===== */
+
+/* General safeguards */
+html,body{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+}
+body{
+  margin:0;
+}
+.book,
+.screen{
+  width:100%;
+  max-width:100%;
+}
+.screen{
+  box-sizing:border-box;
+}
+.screen *{
+  box-sizing:border-box;
+  min-width:0;
+}
+
+/* PORTRAIT PHONE */
+@media (max-width:600px) and (orientation:portrait){
+  .screen{
+    padding:
+      30px max(14px,env(safe-area-inset-right))
+      40px max(14px,env(safe-area-inset-left)) !important;
+    min-height:auto !important;
+  }
+
+  .screen:first-of-type h1{
+    font-size:clamp(34px,9vw,44px) !important;
+    line-height:.92 !important;
+    letter-spacing:-.055em !important;
+  }
+  .screen:first-of-type h1 .acid,
+  .screen:first-of-type h1 .acidtext{
+    display:block !important;
+    width:max-content !important;
+    max-width:100% !important;
+    white-space:nowrap !important;
+    font-size:1.48em !important;
+    letter-spacing:-.065em !important;
+    line-height:.93 !important;
+  }
+
+  .grid2,.grid3,.compare,.hypgrid,.guide-grid,.map8,.timeline,.outcomes,
+  .matrix,.signal,.criteria,.scale,.vs,.asym,.strip{
+    grid-template-columns:minmax(0,1fr) !important;
+  }
+
+  .flow,
+  .progressline{
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) !important;
+    gap:9px !important;
+  }
+  .flow i,
+  .progressline i{
+    transform:rotate(90deg);
+    text-align:center;
+    margin:0 auto !important;
+    line-height:1;
+  }
+  .flow .step,
+  .flow .stepbox,
+  .progressline .step{
+    width:100% !important;
+    white-space:normal !important;
+    word-break:normal !important;
+    overflow-wrap:normal !important;
+    hyphens:none !important;
+  }
+  .progressline .step{
+    white-space:nowrap !important;
+  }
+
+  .summary-row{
+    grid-template-columns:minmax(0,1fr) !important;
+  }
+
+  .book-nav__panel{
+    left:8px;
+    right:8px;
+    width:auto;
+    max-height:calc(100dvh - 70px);
+  }
+}
+
+/* LANDSCAPE PHONE — use width, but respect short viewport height */
+@media (min-width:601px) and (max-width:950px) and (orientation:landscape) and (max-height:600px){
+  html{
+    scroll-padding-top:58px;
+  }
+  .screen{
+    min-height:auto !important;
+    padding:
+      22px max(26px,env(safe-area-inset-right))
+      28px max(26px,env(safe-area-inset-left)) !important;
+  }
+  .meta{
+    margin-bottom:18px !important;
+    padding-bottom:8px !important;
+  }
+  h1{
+    font-size:clamp(48px,8vw,70px) !important;
+  }
+  h2{
+    font-size:clamp(38px,6vw,58px) !important;
+  }
+  .lead{
+    font-size:19px !important;
+  }
+  .oversize{
+    font-size:76px !important;
+  }
+  .bigmethod{
+    font-size:clamp(42px,7vw,66px) !important;
+  }
+
+  /* Two columns work well in landscape phone */
+  .grid2{
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;
+    gap:24px !important;
+  }
+  .grid3,
+  .compare,
+  .hypgrid,
+  .guide-grid,
+  .timeline,
+  .outcomes,
+  .matrix,
+  .signal,
+  .criteria,
+  .scale{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:10px !important;
+  }
+  .map8{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+
+  /* Method chains can remain horizontal if they fit */
+  .flow,
+  .progressline{
+    display:flex !important;
+    flex-wrap:wrap !important;
+    align-items:center !important;
+    gap:8px !important;
+  }
+  .flow i,
+  .progressline i{
+    transform:none !important;
+    margin:0 !important;
+  }
+  .flow .step,
+  .flow .stepbox{
+    flex:1 1 180px;
+    width:auto !important;
+  }
+  .progressline .step{
+    flex:0 1 auto;
+    width:auto !important;
+    white-space:nowrap !important;
+  }
+
+  .book-nav{
+    top:max(8px,env(safe-area-inset-top));
+    right:max(10px,env(safe-area-inset-right));
+  }
+  .book-nav__panel{
+    top:52px;
+    right:max(10px,env(safe-area-inset-right));
+    left:auto;
+    width:min(300px,44vw);
+    max-height:calc(100dvh - 62px);
+    overflow:auto;
+  }
+  .to-top{
+    right:max(10px,env(safe-area-inset-right));
+    bottom:max(10px,env(safe-area-inset-bottom));
+  }
+}
+
+/* TABLET PORTRAIT */
+@media (min-width:601px) and (max-width:900px) and (orientation:portrait){
+  .screen{
+    padding:38px 32px 48px !important;
+  }
+  .grid2{
+    grid-template-columns:minmax(0,1fr) !important;
+  }
+  .grid3,.compare,.hypgrid,.guide-grid,.timeline,.outcomes,.matrix,.signal,.criteria,.scale{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+  .map8{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}
+
+/* TABLET LANDSCAPE */
+@media (min-width:901px) and (max-width:1180px) and (orientation:landscape){
+  .screen{
+    padding:42px 44px 52px !important;
+  }
+  .grid2{
+    grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr) !important;
+  }
+  .map8{
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  }
+}
+
+/* Desktop/laptop */
+@media (min-width:1181px){
+  .screen{
+    padding-left:clamp(52px,5.5vw,76px) !important;
+    padding-right:clamp(52px,5.5vw,76px) !important;
+  }
+}
+
+/* Extremely narrow screens */
+@media (max-width:360px) and (orientation:portrait){
+  .screen:first-of-type h1{
+    font-size:31px !important;
+  }
+  .screen:first-of-type h1 .acid,
+  .screen:first-of-type h1 .acidtext{
+    font-size:1.34em !important;
+  }
+  .book-nav__toggle{
+    width:42px;
+    height:42px;
+    padding:0 !important;
+  }
+}
+
+
+/* ===== SMALL CARD READABILITY ===== */
+@media (max-width:600px) and (orientation:portrait){
+  .box,
+  .map8 .cell,
+  .hyp,
+  .criteria .cell,
+  .signal .cell,
+  .timeline .cell,
+  .outcomes .cell,
+  .option,
+  .guide-card{
+    padding:16px !important;
+    min-height:auto !important;
+  }
+
+  .box p,
+  .map8 .cell span,
+  .hyp li,
+  .criteria .cell span,
+  .signal .cell p,
+  .timeline .cell p,
+  .outcomes .cell p,
+  .guide-card li{
+    font-size:15px !important;
+    line-height:1.4 !important;
+  }
+
+  .map8 .cell b,
+  .hyp .n,
+  .signal .cell b{
+    font-size:24px !important;
+    line-height:1 !important;
+  }
+
+  .flow .step,
+  .flow .stepbox{
+    font-size:16px !important;
+    line-height:1.25 !important;
+    letter-spacing:0 !important;
+    text-transform:none !important;
+    font-weight:800 !important;
+    padding:15px 16px !important;
+  }
+
+  .progressline .step{
+    font-size:20px !important;
+    line-height:1.15 !important;
+    padding:15px 16px !important;
+    text-align:center !important;
+  }
+
+  .choose .option{
+    font-size:16px !important;
+    line-height:1.3 !important;
+    padding:15px 16px !important;
+  }
+
+  .choose .option b{
+    display:inline-block;
+    margin-right:8px;
+    margin-bottom:0 !important;
+  }
+
+  .cell > b,
+  .side > b,
+  .box > b{
+    letter-spacing:.04em !important;
+    line-height:1.2 !important;
+  }
+}
+
+@media (min-width:601px) and (max-width:950px) and (orientation:landscape) and (max-height:600px){
+  .flow .step,
+  .flow .stepbox,
+  .choose .option{
+    font-size:15px !important;
+    line-height:1.25 !important;
+    text-transform:none !important;
+    letter-spacing:0 !important;
+  }
+}
+
+
+/* ===== PATCH: fixed equal blocks / no ugly word breaks ===== */
+.schedule-side{
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+  justify-content:center;
+}
+.schedule-days,
+.schedule-types{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:12px;
+  align-items:center;
+}
+.schedule-days span,
+.schedule-types span{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  white-space:nowrap;
+}
+.schedule-days span{
+  font-size:clamp(42px,6vw,72px);
+  line-height:.95;
+  font-weight:900;
+  letter-spacing:-.06em;
+}
+.schedule-types span{
+  font-size:clamp(18px,2.2vw,28px);
+  line-height:1.1;
+}
+
+.progressline.progress-equal,
+.flow.flow-equal{
+  display:flex !important;
+  align-items:stretch;
+  justify-content:flex-start;
+  gap:18px;
+  flex-wrap:nowrap !important;
+  overflow-x:auto;
+  overflow-y:hidden;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:thin;
+  padding:4px 2px 8px;
+}
+
+.progressline.progress-equal .step,
+.flow.flow-equal .step,
+.flow.flow-equal .stepbox{
+  flex:0 0 190px;
+  min-height:138px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  white-space:normal !important;
+  word-break:keep-all !important;
+  overflow-wrap:normal !important;
+  hyphens:none !important;
+}
+
+.progressline.progress-equal .step{
+  font:900 28px/1.06 monospace !important;
+  padding:18px !important;
+}
+
+.flow.flow-equal .step,
+.flow.flow-equal .stepbox{
+  font-size:20px !important;
+  line-height:1.14 !important;
+  font-weight:800 !important;
+  letter-spacing:0 !important;
+  text-transform:none !important;
+  padding:18px !important;
+}
+
+.progressline.progress-equal i,
+.flow.flow-equal i{
+  flex:0 0 34px;
+  display:grid;
+  place-items:center;
+  font-style:normal;
+  font-size:34px;
+  line-height:1;
+  transform:none !important;
+  margin:0 !important;
+}
+
+@media (max-width:900px){
+  .progressline.progress-equal .step,
+  .flow.flow-equal .step,
+  .flow.flow-equal .stepbox{
+    flex-basis:170px;
+    min-height:124px;
+  }
+  .flow.flow-equal .step,
+  .flow.flow-equal .stepbox{
+    font-size:18px !important;
+  }
+  .progressline.progress-equal .step{
+    font-size:24px !important;
+  }
+}
+
+@media (max-width:600px){
+  .schedule-side{
+    gap:16px;
+  }
+  .schedule-days,
+  .schedule-types{
+    gap:8px;
+  }
+  .schedule-days span{
+    font-size:clamp(24px,7.2vw,34px);
+  }
+  .schedule-types span{
+    font-size:14px;
+  }
+}
+
+@media (max-width:600px) and (orientation:portrait){
+  .progressline.progress-equal,
+  .flow.flow-equal{
+    display:flex !important;
+    grid-template-columns:none !important;
+    gap:10px !important;
+    flex-wrap:nowrap !important;
+    overflow-x:auto !important;
+  }
+
+  .progressline.progress-equal .step,
+  .flow.flow-equal .step,
+  .flow.flow-equal .stepbox{
+    width:auto !important;
+    flex:0 0 148px;
+    min-height:110px;
+    white-space:normal !important;
+    word-break:keep-all !important;
+    overflow-wrap:normal !important;
+    hyphens:none !important;
+    padding:14px !important;
+  }
+
+  .progressline.progress-equal .step{
+    font-size:20px !important;
+    line-height:1.08 !important;
+  }
+
+  .flow.flow-equal .step,
+  .flow.flow-equal .stepbox{
+    font-size:17px !important;
+    line-height:1.12 !important;
+  }
+
+  .progressline.progress-equal i,
+  .flow.flow-equal i{
+    flex:0 0 22px;
+    font-size:24px;
+    transform:none !important;
+  }
+}
+
+
+
+/* ===== PATCH 2: equal flow boxes desktop ===== */
+.flow.flow-equal{
+  justify-content:space-between !important;
+  gap:18px !important;
+}
+.flow.flow-equal .step,
+.flow.flow-equal .stepbox{
+  flex:1 1 0 !important;
+  width:auto !important;
+  min-width:0 !important;
+  max-width:none !important;
+  min-height:220px !important;
+  height:220px !important;
+  padding:22px !important;
+  font-size:16px !important;
+  line-height:1.14 !important;
+  letter-spacing:0 !important;
+  text-align:left !important;
+  align-items:flex-start !important;
+  justify-content:flex-start !important;
+}
+.flow.flow-equal i{
+  flex:0 0 30px !important;
+  align-self:center !important;
+}
+
+@media (max-width:600px) and (orientation:portrait){
+  .flow.flow-equal{
+    justify-content:flex-start !important;
+  }
+  .flow.flow-equal .step,
+  .flow.flow-equal .stepbox{
+    flex:0 0 150px !important;
+    width:auto !important;
+    min-height:120px !important;
+    height:120px !important;
+    padding:14px !important;
+    font-size:15px !important;
+    line-height:1.12 !important;
+  }
+}
+
+
+/* ===== FINAL AESTHETIC FIX FOR THE TWO PROBLEM FLOWS ===== */
+
+/* Shared visual language */
+.local-check-flow,
+.test-plan-flow{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  flex-wrap:nowrap !important;
+  gap:18px !important;
+  margin:28px 0 !important;
+  overflow:visible !important;
+}
+
+.local-check-flow .step,
+.test-plan-flow .step{
+  box-sizing:border-box !important;
+  border:1px solid currentColor !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  text-align:center !important;
+  white-space:normal !important;
+  word-break:normal !important;
+  overflow-wrap:normal !important;
+  hyphens:none !important;
+  text-transform:none !important;
+  letter-spacing:0 !important;
+  font-family:Arial,Helvetica,sans-serif !important;
+  font-weight:800 !important;
+  line-height:1.18 !important;
+  padding:18px !important;
+}
+
+.local-check-flow i,
+.test-plan-flow i{
+  flex:0 0 32px !important;
+  display:grid !important;
+  place-items:center !important;
+  font-size:32px !important;
+  line-height:1 !important;
+  font-style:normal !important;
+  transform:none !important;
+  margin:0 !important;
+}
+
+/* White block: 3 identical compact cards */
+.local-check-flow .step{
+  flex:0 0 230px !important;
+  width:230px !important;
+  height:132px !important;
+  min-height:132px !important;
+  font-size:18px !important;
+}
+
+/* Dark block: 4 identical compact cards */
+.test-plan-flow .step{
+  flex:0 0 185px !important;
+  width:185px !important;
+  height:148px !important;
+  min-height:148px !important;
+  font-size:17px !important;
+}
+
+/* Tablet */
+@media (max-width:980px) and (min-width:601px){
+  .local-check-flow,
+  .test-plan-flow{
+    gap:12px !important;
+  }
+
+  .local-check-flow .step{
+    flex-basis:190px !important;
+    width:190px !important;
+    height:120px !important;
+    min-height:120px !important;
+    font-size:17px !important;
+  }
+
+  .test-plan-flow .step{
+    flex-basis:150px !important;
+    width:150px !important;
+    height:132px !important;
+    min-height:132px !important;
+    font-size:15px !important;
+  }
+
+  .local-check-flow i,
+  .test-plan-flow i{
+    flex-basis:24px !important;
+    font-size:26px !important;
+  }
+}
+
+/* Phone: same cards, one clean vertical sequence */
+@media (max-width:600px){
+  .local-check-flow,
+  .test-plan-flow{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:10px !important;
+    overflow:visible !important;
+  }
+
+  .local-check-flow .step,
+  .test-plan-flow .step{
+    width:100% !important;
+    max-width:100% !important;
+    height:92px !important;
+    min-height:92px !important;
+    flex:none !important;
+    font-size:17px !important;
+    padding:16px 18px !important;
+  }
+
+  .local-check-flow i,
+  .test-plan-flow i{
+    width:28px !important;
+    height:28px !important;
+    margin:0 auto !important;
+    transform:rotate(90deg) !important;
+    font-size:26px !important;
+  }
+}
+
 </style>
 </head>
 <body>
-<div class="wrap"><div><b>TRAINING OS</b><br><small>Загрузка книги…</small></div></div>
+
+
+
+
+
+<nav class="book-nav" aria-label="Навигация по книге">
+  <button class="book-nav__toggle" type="button" aria-expanded="false">≡ <span>Разделы</span></button>
+  <div class="book-nav__panel">
+    <a href="#data">Данные</a>
+    <a href="#program">Программа</a>
+    <a href="#scale">Масштаб проблемы</a>
+    <a href="#hypotheses">Гипотезы</a>
+    <a href="#test">Проверка</a>
+    <a href="#protocol">Мой протокол</a>
+    <a href="#top">↑ Наверх</a>
+  </div>
+</nav>
+<button class="to-top" type="button" aria-label="Наверх">↑</button>
+
+<main class="book">
+<section id="top" class="screen dark">
+<div class="meta"><span>TRAINING OS</span><span class="soft">01 / 50</span></div>
+<div class="kicker">Система тренировочных решений</div>
+<h1><span class="kinetic">Почему я не</span><br><span class="acid">прогрессирую?</span></h1>
+<p class="lead">Как разобраться, что тормозит твой прогресс в зале, и понять, что изменить первым — без постоянной смены программ и хаотичных экспериментов.</p>
+<div class="data">80 × 8 → 80 × 8 → 80 × 7</div>
+<div class="strip"><div>01 · Данные</div><div>02 · Гипотеза</div><div>03 · Проверка</div></div>
+<div class="footer"><span>Меньше догадок. Яснее решения.</span><span>ONE CHANGE → TEST → REASSESS / ОДИН ОСНОВНОЙ ФАКТОР → ПРОВЕРКА → ПЕРЕОЦЕНКА</span></div>
+</section>
+
+<section class="screen safety-screen">
+  <div class="meta"><span>BEFORE YOU START / ПЕРЕД НАЧАЛОМ</span><span class="soft">SAFETY / БЕЗОПАСНОСТЬ</span></div>
+  <div class="grid2">
+    <div>
+      <div class="kicker">Важная рамка продукта</div>
+      <h2>Эта книга не заменяет медицинскую оценку</h2>
+      <p class="lead">TRAINING OS помогает анализировать тренировочный процесс. Она не предназначена для диагностики травм, заболеваний или причин боли.</p>
+    </div>
+    <div>
+      <div class="box black">
+        <b>ОТЛОЖИ ЭКСПЕРИМЕНТЫ С ПРОГРАММОЙ И ОБРАТИСЬ К ПОДХОДЯЩЕМУ СПЕЦИАЛИСТУ, ЕСЛИ ПОЯВИЛИСЬ:</b>
+        <p>новая или усиливающаяся боль, онемение, выраженная слабость, головокружение, обморок, необычная одышка, резкое ухудшение самочувствия или другие вызывающие беспокойство симптомы.</p>
+      </div>
+      <div class="rule">Материал рассчитан на здоровых взрослых и на людей, которым самостоятельные тренировки не противопоказаны.</div>
+      <p>Если есть сомнения относительно состояния здоровья, допустимой нагрузки или возвращения к тренировкам после травмы или заболевания, обсуди это с квалифицированным медицинским специалистом.</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="screen">
+<div class="meta"><span>OBSERVATION / НАБЛЮДЕНИЕ</span><span class="soft">02 / 50</span></div>
+<div class="grid2"><div><div class="oversize">02</div><div class="kicker">Наблюдение</div><h2>Вроде всё делаешь.<br>А результат стоит.</h2></div>
+<div><p class="lead">Ты продолжаешь тренироваться. Жал 80 кг — и всё ещё жмёшь 80. Повторения не растут.</p>
+<div class="box black">Добавь объём · сократи объём · тренируйся до отказа · смени программу · сделай разгрузку.</div>
+<div class="rule">Советов много. Решение всё ещё неясно.</div></div></div>
+</section>
+
+<section class="screen">
+<div class="meta"><span>METHOD / МЕТОД</span><span class="soft">03 / 50</span></div>
+<div class="asym"><div class="note">Главная ошибка — менять несколько переменных сразу.</div>
+<div><h2>Когда меняешь всё сразу</h2><p>Допустим, жим перестал расти. Ты добавляешь подходы, меняешь упражнение, чаще работаешь до отказа, повышаешь калорийность, а затем делаешь разгрузку.</p>
+<div class="question">Через некоторое время результат улучшается. Что именно сработало?</div>
+<p>По этим данным этого не определить: одновременно изменилось слишком много условий.</p></div></div>
+</section>
+
+<section class="screen dark">
+<div class="meta"><span>METHOD / МЕТОД</span><span class="soft">04 / 50</span></div>
+<div class="kicker">Базовый принцип</div>
+<h2>ONE MAIN CHANGE <span class="framework-ru">/ ОДИН ОСНОВНОЙ ФАКТОР</span><br>→ TEST <span class="framework-ru">/ ПРОВЕРКА</span><br>→ REASSESS <span class="framework-ru">/ ПЕРЕОЦЕНКА</span></h2>
+<div class="pills"><span class="pill">Один основной фактор</span><span class="pill">Проверка</span><span class="pill">Новое решение</span></div>
+<p class="lead">Сначала собери данные и выбери рабочую гипотезу. По возможности меняй один основной фактор и фиксируй остальные значимые изменения.</p>
+<div class="footer"><span>04 / Method</span><span>Меньше меняй. Больше понимай.</span></div>
+</section>
+
+<section class="screen">
+<div class="meta"><span>MAP / КАРТА</span><span class="soft">05 / 50</span></div>
+<div class="grid2"><div><div class="oversize">05</div><h2>Маршрут книги</h2><p class="lead">Не пытайся исправить всё. Возьми один показатель и проведи его через систему.</p></div>
+<div class="map"><div class="maprow"><b>01</b><span>Проверить, действительно ли прогресс остановился.</span></div><div class="maprow"><b>02</b><span>Понять, какую область исследовать первой.</span></div><div class="maprow"><b>03</b><span>Выбрать одну рабочую гипотезу и проверить её.</span></div></div></div>
+<div class="question">Что именно перестало прогрессировать?</div>
+</section>
+
+<section id="data" class="screen">
+<div class="meta"><span>OBSERVATION / НАБЛЮДЕНИЕ</span><span class="soft">06 / 50</span></div>
+<div class="kicker">Конкретизация</div><h2>Что именно не прогрессирует?</h2>
+<div class="data">80 × 8 → 80 × 9 → 82,5 × 8</div>
+<div class="grid2"><p>Фраза «Я перестал прогрессировать» не показывает, что именно изменилось.</p>
+<div class="box">Если цель связана с размером или формой мышц, понадобятся другие наблюдения: сопоставимые фотографии, масса тела и контекст тренировок.</div></div>
+</section>
+
+<section class="screen dark">
+<div class="meta"><span>OBSERVATION / НАБЛЮДЕНИЕ</span><span class="soft">07 / 50</span></div>
+<div class="oversize">07</div><h2>Ищи повторяющуюся картину</h2>
+<div class="data">80 × 8 → 80 × 8</div>
+<p class="lead">Одна тренировка — это точка. Для вывода нужна динамика.</p>
+<div class="rule">Сравни несколько достаточно сопоставимых тренировок.</div>
+</section>
+
+<section class="screen">
+<div class="meta"><span>OBSERVATION / НАБЛЮДЕНИЕ</span><span class="soft">08 / 50</span></div>
+<div class="kicker">Динамика</div><h2>Смотри на движение показателей</h2>
+<div class="compare"><div class="side"><div class="kicker">Вариант A</div><div class="data">80×8 → 80×9 → 80×10</div><p>Показатель движется.</p></div>
+<div class="side"><div class="kicker">Вариант B</div><div class="data">80×8 → 80×8 → 80×7</div><p>Тот же вес ощущается тяжелее.</p></div></div>
+<p>Учитывай вес, повторения, субъективную сложность, технику, амплитуду и место упражнения в тренировке.</p>
+</section>
+
+<section class="screen">
+<div class="meta"><span>OBSERVATION / НАБЛЮДЕНИЕ</span><span class="soft">09 / 50</span></div>
+<div class="grid2"><div><div class="oversize">09</div><div class="kicker">Контекст</div><h2>Как давно ты развиваешь именно этот показатель?</h2></div>
+<div><p class="lead">Важен не только общий стаж в зале.</p><div class="box black">Можно тренироваться пять лет, но целенаправленно работать над жимом последние полгода.</div><p>По мере тренировочного опыта скорость заметного прогресса может меняться. Это контекст, а не универсальный порог.</p></div></div>
+</section>
+
+<section class="screen dark">
+<div class="meta"><span>DECISION / РЕШЕНИЕ</span><span class="soft">10 / 50</span></div>
+<div class="grid2"><div><div class="kicker">Первая развилка</div><h2>У тебя достаточно данных?</h2>
+<div class="question">Я вижу повторяющуюся проблему в нескольких достаточно сопоставимых тренировках?</div>
+<div class="grid3"><div class="box">НЕТ<br><small>Сначала собери данные.</small></div><div class="box">ДА<br><small>Сравни план и факт.</small></div><div class="box">НЕ УВЕРЕН<br><small>Не спеши менять программу.</small></div></div></div>
+<div class="form"><h3>Мои данные</h3><p class="form-note">Эти ответы сохранятся и позже автоматически попадут в твой итоговый разбор.</p>
+<label>Что именно остановилось</label><input data-key="metric">
+<label>Как давно развиваю показатель</label><input data-key="metric_age">
+<label>Что повторяется</label><textarea data-key="metric_pattern"></textarea>
+</div></div>
+<div class="footer"><span>10 / Decision</span><span>Сначала данные.</span></div>
+</section>
+
+<section id="program" class="screen dark">
+<div class="meta"><span>ANALYSIS / АНАЛИЗ</span><span class="soft">11 / 50</span></div>
+<div class="grid2">
+  <div><div class="oversize">11</div><div class="kicker">План vs факт</div><h2>Положи программу перед собой</h2></div>
+  <div><p class="lead">Открой программу или тренировочный дневник за последние недели.</p>
+  <div class="box">Упражнения · рабочие подходы · повторения · рабочие веса · порядок упражнений.</div>
+  <div class="rule">Нужно восстановить то, что было запланировано — и что происходило на тренировках на самом деле.</div></div>
+</div>
+<div class="footer"><span>11 / Analysis</span><span>План ≠ факт</span></div>
+</section>
+
+<section class="screen">
+<div class="meta"><span>DATA / ДАННЫЕ</span><span class="soft">12 / 50</span></div>
+<div class="kicker">Конкретная неделя</div><h2>Как выглядит твоя неделя</h2>
+<div class="week">
+  <div class="head">Упражнение</div><div class="head">Подходы</div><div class="head">Вес</div>
+  <div>Жим лёжа</div><div>3 × 8–10</div><div>80 кг</div>
+  <div>Тяга верхнего блока</div><div>3 × 10–12</div><div>70 кг</div>
+  <div>Наклонный жим гантелей</div><div>3 × 8–10</div><div>30 кг</div>
+  <div>Горизонтальная тяга</div><div>3 × 10–12</div><div>65 кг</div>
+  <div>Разгибание на трицепс</div><div>3 × 12–15</div><div>30 кг</div>
+</div>
+<div class="rule">Теперь вместо «вроде тренируюсь много» перед тобой конкретная неделя, которую можно разбирать.</div>
+</section>
+
+<section class="screen">
+<div class="meta"><span>ANALYSIS / АНАЛИЗ</span><span class="soft">13 / 50</span></div>
+<div class="kicker">План ≠ факт</div><h2>Программа на бумаге ≠ то, что ты выполнял</h2>
+<div class="compare">
+  <div class="side schedule-side"><div class="kicker">По плану</div><div class="schedule-days"><span>ПН</span><span>СР</span><span>ПТ</span><span>ВС</span></div><div class="schedule-types"><span>Верх</span><span>низ</span><span>верх</span><span>низ</span></div></div>
+  <div class="side"><div class="kicker">По дневнику</div><p><b>1-я:</b> четыре тренировки</p><p><b>2-я:</b> пропущена пятница</p><p><b>3-я:</b> две тренировки</p><p><b>4-я:</b> часть упражнений заменена</p></div>
+</div>
+<div class="question">Сначала разберись, что ты действительно выполнял последние недели.</div>
+</section>
+
+<section class="screen dark">
+<div class="meta"><span>DECISION / РЕШЕНИЕ</span><span class="soft">14 / 50</span></div>
+<div class="grid2">
+  <div><div class="oversize">14</div><div class="kicker">Решение</div><h2>Эту программу уже можно оценивать?</h2>
+  <p>Основные упражнения оставались примерно теми же? Запланированные тренировки в основном выполнялись? Объём, порядок и структура не менялись постоянно?</p></div>
+  <div>
+    <div class="box"><b>ПОСТОЯННО МЕНЯЛИСЬ</b><br><small>Собери более стабильный период наблюдений.</small></div>
+    <div class="box accent"><b>ДОСТАТОЧНО ПОСЛЕДОВАТЕЛЬНО</b><br><small>Переходим к вопросу: как должна развиваться нагрузка?</small></div>
+  </div>
+</div>
+<div class="footer"><span>14 / Decision</span><span>Сначала стабильность.</span></div>
+</section>
+
+<section class="screen">
+<div class="meta"><span>PROGRESSION / ПРОГРЕССИЯ</span><span class="soft">15 / 50</span></div>
+<div class="asym">
+  <div><div class="note">Если ответа нет, ты не знаешь, по какому правилу должна меняться тренировочная работа со временем.</div></div>
+  <div><div class="kicker">Правило роста</div><h2>Что должно измениться со временем?</h2>
+  <div class="data">30 КГ × 10 × 3</div>
+  <p>Что должно произойти дальше? Когда увеличиваются повторения? При каком условии меняется вес? Есть ли другой параметр, который программа предусматривает развивать?</p></div>
+</div>
+</section>
+
+<section class="screen dark">
+<div class="meta"><span>PROGRESSION / ПРОГРЕССИЯ</span><span class="soft">16 / 50</span></div>
+<div class="kicker">Не линейная лестница</div><h2>Прогресс ≠ прибавка на каждой тренировке</h2>
+<div class="progressline progress-equal">
+  <span class="step">80×8</span><i>→</i><span class="step">82,5×8</span><i>→</i><span class="step">85×8</span><i>→</i><span class="step">87,5×8</span>
+</div>
+<p class="lead">Прогрессивная перегрузка не требует такой прибавки четыре тренировки подряд.</p>
+<p>Скорость изменений зависит в том числе от цели и тренировочного опыта.</p>
+<div class="question">По какому правилу здесь развивается нагрузка и как я оцениваю результат этого процесса?</div>
+</section>
+
+<section class="screen">
+<div class="meta"><span>PROGRESSION / ПРОГРЕССИЯ</span><span class="soft">17 / 50</span></div>
+<div class="grid2">
+  <div><div class="oversize">17</div><div class="kicker">Правило следующего шага</div><h2>Прогрессия — это правило следующего шага</h2></div>
+  <div><div class="data">80 × 8 → 80 × 9 → 80 × 10</div>
+  <p>Это лишь один вариант. Можно работать в диапазоне повторений и после заранее определённого условия увеличивать вес. Единственной обязательной схемы нет.</p>
+  <div class="rule">Что должно произойти, чтобы я изменил нагрузку?</div></div>
+</div>
+</section>
+
+<section class="screen dark">
+<div class="meta"><span>DECISION / РЕШЕНИЕ</span><span class="soft">18 / 50</span></div>
+<div class="grid2">
+  <div><div class="kicker">Твоя программа</div><h2>Есть ли у тебя правило прогрессии?</h2>
+  <div class="question">Когда и по какому условию я увеличиваю вес, повторения или другое тренировочное требование?</div>
+  <div class="compare">
+    <div class="side"><b>НЕ МОГУ ОТВЕТИТЬ</b><p>Первая рабочая гипотеза: проверить систему прогрессии.</p></div>
+    <div class="side"><b>МОГУ</b><p>Правило выполнялось и раньше позволяло прогрессировать? Тогда идём дальше.</p></div>
+  </div></div>
+  <div class="form">
+    <h3>Моя программа</h3><p class="form-note">Не нужно заполнять ради галочки: ответы используются дальше при сборке гипотез и финального протокола.</p>
+    <label>Я выполнял программу достаточно последовательно?</label><input data-key="adherence" placeholder="Да / Нет / Не уверен">
+    <label>Что чаще всего менялось по ходу?</label><textarea data-key="program_changes"></textarea>
+    <label>Я могу объяснить правило прогрессии?</label><input data-key="progression" placeholder="Да / Нет">
+    <label>По какому условию делаю следующий шаг?</label><textarea data-key="progression_rule"></textarea>
+  </div>
+</div>
+<div class="footer"><span>18 / Decision</span><span>Ясное правило → ясная проверка.</span></div>
+</section>
+
+<section class="screen">
+<div class="meta"><span>LOAD / НАГРУЗКА</span><span class="soft">19 / 50</span></div>
+<div class="grid2">
+  <div><div class="oversize">19</div><div class="kicker">Объём</div><h2>Может, нужно просто делать больше?</h2></div>
+  <div>
+    <div class="matrix">
+      <div class="cell"><b>10</b>подходов</div>
+      <div class="cell"><b>14</b>подходов</div>
+      <div class="cell"><b>18</b>подходов</div>
+      <div class="cell"><b>22</b>подхода</div>
+    </div>
+    <p>Если работы становится больше, а целевой показатель не улучшается, этого недостаточно, чтобы назвать конкретный объём «слишком большим».</p>
+    <div class="rule">Смотри, как менялся объём относительно твоего собственного прогресса.</div>
+  </div>
+</div>
+</section>
+
+<section class="screen dark">
+<div class="meta"><span>EFFORT / УСИЛИЕ</span><span class="soft">20 / 50</span></div>
+<div class="kicker">Усилие</div><h2>Насколько тяжело ты работаешь?</h2>
+<div class="scale">
+  <div class="side"><div class="score">RIR 2</div><p>По твоей оценке, оставалось примерно два повторения.</p></div>
+  <div class="side"><div class="score">RIR 0</div><p>Ещё одно полноценное повторение выполнить уже не получилось бы.</p></div>
+</div>
+<div class="question">RIR — субъективная оценка. Она помогает сохранить контекст тренировки, но не превращает ощущение в точное измерение.</div>
+</section>
+
+<section class="screen dark">
+<div class="meta"><span>EFFORT / УСИЛИЕ</span><span class="soft">21 / 50</span></div>
+<div class="grid2">
+  <div><div class="oversize">21</div><div class="kicker">Близость к пределу</div><h2>Нужно ли каждый подход доводить до отказа?</h2></div>
+  <div><p class="lead">Подход с большим запасом повторений и подход около предела — не одно и то же.</p>
+  <div class="box">Близость к отказу может иметь значение для тренировочного стимула. Но из этого не следует, что каждый рабочий подход нужно доводить до отказа.</div>
+  <div class="rule">Насколько тяжёлой была работа в тот период, когда показатель перестал двигаться?</div></div>
+</div>
+<div class="footer"><span>21 / Effort</span><span>Контекст, не догма.</span></div>
+</section>
+
+<section class="screen">
+<div class="meta"><span>GOAL / ЦЕЛЬ</span><span class="soft">22 / 50</span></div>
+<div class="kicker">Цель</div><h2>Соответствует ли тренировка твоей цели?</h2>
+<div class="grid2">
+  <div><div class="box black"><b>Цель:</b><br>улучшить жим</div><div class="data">80 × 8</div></div>
+  <div><p>Если жим выполняется нерегулярно, часто стоит после другой тяжёлой работы, а правило прогрессии меняется, общего объёма на грудь недостаточно для оценки.</p>
+  <div class="question">Проблема только здесь — или одновременно проседают и другие показатели?</div></div>
+</div>
+</section>
+
+<section id="scale" class="screen dark">
+<div class="meta"><span>DECISION / РЕШЕНИЕ</span><span class="soft">23 / 50</span></div>
+<div class="kicker">Масштаб проблемы</div><h2>Где именно остановился прогресс?</h2>
+<div class="grid3">
+  <div class="box"><h3>01</h3><p><b>Одно движение</b></p><p>Связанные упражнения продолжают прогрессировать.</p></div>
+  <div class="box"><h3>02</h3><p><b>Несколько связанных</b></p><p>Изменения появились в группе упражнений или мышц.</p></div>
+  <div class="box"><h3>03</h3><p><b>Почти всё</b></p><p>Снижение видно в нескольких разных движениях.</p></div>
+</div>
+<div class="rule">Эта развилка не показывает причину. Она задаёт масштаб следующей проверки.</div>
+</section>
+
+<section class="screen">
+<div class="meta"><span>LOCAL ANALYSIS / ЛОКАЛЬНЫЙ АНАЛИЗ</span><span class="soft">24 / 50</span></div>
+<div class="grid2">
+  <div><div class="oversize">24</div><div class="kicker">Локальная проблема</div><h2>Если стоит только одно упражнение</h2></div>
+  <div><div class="data">80×8 → 80×8 → 80×7</div>
+  <p>Начни с локальных условий. По такой картине нельзя назвать причину, зато можно сузить область первой проверки.</p>
+  <div class="map">
+    <div class="maprow"><b>01</b><span>Прогрессия</span></div>
+    <div class="maprow"><b>02</b><span>Место упражнения</span></div>
+    <div class="maprow"><b>03</b><span>Техника и амплитуда</span></div>
+    <div class="maprow"><b>04</b><span>Отдых между тяжёлыми подходами</span></div>
+    <div class="maprow"><b>05</b><span>Регулярность выполнения</span></div>
+  </div></div>
+</div>
+</section>
+
+<section class="screen">
+<div class="meta"><span>HYPOTHESIS / ГИПОТЕЗА</span><span class="soft">25 / 50</span></div>
+<div class="kicker">Первая локальная проверка</div><h2>Выбери одну рабочую гипотезу</h2>
+<div class="box"><b>Наблюдение</b><br>Связанные упражнения продолжают прогрессировать. Проблема наблюдается именно в жиме. Нагрузка менялась без понятного правила.</div>
+<div class="hyp">
+  <div class="kicker">Рабочая гипотеза</div>
+  <div class="main">Стоит проверить систему прогрессии в жиме.</div>
+</div>
+<div class="flow local-check-flow"><span class="step">1 правило</span><i>→</i><span class="step">сопоставимые тренировки</span><i>→</i><span class="step">новые данные</span></div>
+<p>Выбери одно правило и используй его в сопоставимых тренировках, не перестраивая без необходимости остальные важные условия.</p>
+</section>
+
+<section class="screen dark">
+<div class="meta"><span>GLOBAL ANALYSIS / ОБЩИЙ АНАЛИЗ</span><span class="soft">26 / 50</span></div>
+<div class="grid2">
+  <div><div class="oversize">26</div><div class="kicker">Если проседает не одно</div><h2>А если проседает не только жим?</h2></div>
+  <div><p class="lead">Жим стал хуже. Присед тоже. Тяговые движения начали даваться тяжелее.</p>
+  <div class="timeline">
+    <div class="side"><b>ДО СПАДА</b><p>Найди последние тренировки, когда показатели были на привычном уровне.</p></div>
+    <div class="arrow">→</div>
+    <div class="side"><b>ПОСЛЕ НАЧАЛА СПАДА</b><p>Сравни период после того, как ухудшение стало повторяться.</p></div>
+  </div>
+  <div class="question">Что изменилось между этими периодами?</div></div>
+</div>
+<div class="footer"><span>26 / Global analysis</span><span>Дальше: хронология и восстановление.</span></div>
+</section>
+
+<section class="screen">
+<div class="meta"><span>CHRONOLOGY / ХРОНОЛОГИЯ</span><span class="soft">27 / 50</span></div>
+<div class="grid2">
+  <div><div class="oversize">27</div><div class="kicker">Хронология</div><h2>Что изменилось перед спадом?</h2></div>
+  <div>
+    <p class="lead">Если ухудшились сразу несколько показателей, восстанови последовательность событий.</p>
+    <div class="timeline">
+      <div class="side"><b>ДО</b><p>Когда показатели ещё держались на привычном уровне.</p></div>
+      <div class="arrow">→</div>
+      <div class="side"><b>ПОСЛЕ</b><p>Когда ухудшение стало повторяться.</p></div>
+    </div>
+    <div class="question">Какие изменения появились между этими двумя периодами?</div>
+  </div>
+</div>
+</section>
+
+<section class="screen dark">
+<div class="meta"><span>CHRONOLOGY / ХРОНОЛОГИЯ</span><span class="soft">28 / 50</span></div>
+<div class="kicker">Не ощущение, а последовательность</div><h2>Собери изменения по времени</h2>
+<div class="stack">
+  <div class="row"><b>01</b><span>Объём тренировки вырос.</span></div>
+  <div class="row"><b>02</b><span>Появилось больше тяжёлых подходов.</span></div>
+  <div class="row"><b>03</b><span>Сон стал хуже.</span></div>
+  <div class="row"><b>04</b><span>Увеличилось количество стрессовых дней.</span></div>
+  <div class="row"><b>05</b><span>Снизилась калорийность.</span></div>
+</div>
+<div class="rule">Отдельный пункт ничего не доказывает. Важна связь по времени и повторяемость.</div>
+</section>
+
+<section class="screen">
+<div class="meta"><span>FATIGUE / УТОМЛЕНИЕ</span><span class="soft">29 / 50</span></div>
+<div class="grid2">
+  <div><div class="oversize">29</div><div class="kicker">Накопление нагрузки</div><h2>Слишком много — или слишком мало?</h2></div>
+  <div>
+    <div class="compare">
+      <div class="side"><b>ВАРИАНТ A</b><p>Работы стало больше, восстановление ухудшилось, а показатели начали проседать.</p></div>
+      <div class="side"><b>ВАРИАНТ B</b><p>Работы давно мало, тренировки перестали давать достаточный стимул.</p></div>
+    </div>
+    <div class="question">История изменений важнее одного числа подходов.</div>
+  </div>
+</div>
+</section>
+
+<section class="screen dark">
+<div class="meta"><span>RECOVERY / ВОССТАНОВЛЕНИЕ</span><span class="soft">30 / 50</span></div>
+<div class="kicker">Контекст восстановления</div><h2>Проверь, что изменилось вне упражнения</h2>
+<div class="signal">
+  <div class="cell"><b>СОН</b><p>Как изменился режим и качество сна?</p></div>
+  <div class="cell"><b>СТРЕСС</b><p>Что изменилось вне зала?</p></div>
+  <div class="cell"><b>НАГРУЗКА</b><p>Что происходило с объёмом и тяжестью тренировок?</p></div>
+</div>
+<p class="lead">Сон, стресс и общее состояние помогают восстановить контекст спада.</p>
+<div class="footer"><span>30 / Recovery</span><span>Контекст до выводов.</span></div>
+</section>
+
+<section class="screen">
+<div class="meta"><span>RECOVERY / ВОССТАНОВЛЕНИЕ</span><span class="soft">31 / 50</span></div>
+<div class="grid2">
+  <div><div class="oversize">31</div><div class="kicker">Собери связку</div><h2>Сопоставь нагрузку и восстановление по времени</h2></div>
+  <div>
+    <p>Не оценивай сон, стресс или тренировочный объём отдельно друг от друга. Смотри, какие изменения появились раньше и какие совпали с началом спада.</p>
+    <div class="box black">Полезный вопрос: что изменилось сначала — тренировочная нагрузка, восстановление или внешний контекст?</div>
+    <div class="rule">Хронология помогает выбрать следующую проверку.</div>
+  </div>
+</div>
+</section>
+
+<section class="screen">
+<div class="meta"><span>NUTRITION / ПИТАНИЕ</span><span class="soft">32 / 50</span></div>
+<div class="kicker">Питание</div><h2>Питание имеет смысл только относительно цели</h2>
+<div class="grid3">
+  <div class="box"><h3>Сила</h3><p>Смотри, не изменился ли энергетический контекст вместе со спадом.</p></div>
+  <div class="box"><h3>Масса</h3><p>Сопоставляй тренировки с динамикой массы тела и общим рационом.</p></div>
+  <div class="box"><h3>Сушка</h3><p>Дефицит энергии может менять условия прогресса, но не объясняет всё автоматически.</p></div>
+</div>
+<div class="question">Что изменилось в питании примерно тогда же, когда изменился результат?</div>
+</section>
+
+<section class="screen dark">
+<div class="meta"><span>NUTRITION / ПИТАНИЕ</span><span class="soft">33 / 50</span></div>
+<div class="grid2">
+  <div><div class="oversize">33</div><div class="kicker">Не ищи магическое число</div><h2>Один показатель питания не объясняет картину целиком</h2></div>
+  <div>
+    <div class="data">БЕЛОК ≠ ПРИЧИНА</div>
+    <p class="lead">Не превращай любой застой в поиск одного «неправильного» числа.</p>
+    <div class="box">Смотри на питание вместе с целью, изменениями массы тела, общей энергетической доступностью и тем, что происходило в тренировках.</div>
+  </div>
+</div>
+</section>
+
+<section class="screen dark">
+<div class="meta"><span>WORKSHEET / РАБОЧИЙ ЛИСТ</span><span class="soft">34 / 50</span></div>
+<div class="grid2">
+  <div>
+    <div class="kicker">Собери хронологию</div><h2>Что изменилось перед спадом?</h2>
+    <div class="question">Не оценивай всё сразу. Просто восстанови последовательность.</div>
+    <p>После этого мы сведём данные в карту и выберем несколько рабочих гипотез.</p>
+  </div>
+  <div class="form">
+    <h3>Моя хронология</h3><p class="form-note">Зафиксируй только те изменения, которые действительно появились рядом с началом спада.</p>
+    <label>Когда показатели ещё были на привычном уровне?</label><input data-key="before_period">
+    <label>Когда ухудшение стало повторяться?</label><input data-key="after_period">
+    <label>Что изменилось в тренировках?</label><textarea data-key="training_changes"></textarea>
+    <label>Что изменилось во сне / стрессе / восстановлении?</label><textarea data-key="recovery_changes"></textarea>
+    <label>Что изменилось в питании?</label><textarea data-key="nutrition_changes"></textarea>
+  </div>
+</div>
+<div class="footer"><span>34 / Worksheet</span><span>Дальше: карта → гипотезы.</span></div>
+</section>
+
+<section id="hypotheses" class="screen">
+<div class="meta"><span>MAP / КАРТА</span><span class="soft">35 / 50</span></div>
+<div class="grid2">
+  <div>
+    <div class="oversize">35</div>
+    <div class="kicker">Карта разбора</div>
+    <h2>Сведи всё в одну карту</h2>
+    <p class="lead">Тебе не нужен ещё один совет. Тебе нужна структура, в которой видно, что уже известно, а что пока только предполагается.</p>
+  </div>
+  <div class="map8">
+    <div class="cell"><b>01</b><span>Что именно перестало прогрессировать</span></div>
+    <div class="cell"><b>02</b><span>Есть ли повторяющаяся тенденция</span></div>
+    <div class="cell"><b>03</b><span>Насколько стабильно выполнялась программа</span></div>
+    <div class="cell"><b>04</b><span>Есть ли понятное правило прогрессии</span></div>
+    <div class="cell"><b>05</b><span>Что происходило с объёмом и усилием</span></div>
+    <div class="cell"><b>06</b><span>Локальна проблема или затрагивает многое</span></div>
+    <div class="cell"><b>07</b><span>Что изменилось во восстановлении и питании</span></div>
+    <div class="cell"><b>08</b><span>Что совпало по времени с началом спада</span></div>
+  </div>
+</div>
+<div class="rule">Карта не выдаёт диагноз. Она показывает, какие гипотезы действительно стоит рассматривать.</div>
+</section>
+
+<section class="screen dark">
+<div class="meta"><span>HYPOTHESES / ГИПОТЕЗЫ</span><span class="soft">36 / 50</span></div>
+<div class="kicker">Не одна «причина»</div><h2>Собери 2–3 рабочие гипотезы</h2>
+<p class="lead">Хорошая гипотеза должна опираться на наблюдения, а не появляться потому, что ты недавно увидел чей-то совет.</p>
+<div class="hypgrid">
+  <div class="hyp"><div class="n">01</div><div class="title">Прогрессия</div><ul><li>правило следующего шага непонятно</li><li>нагрузка менялась хаотично</li><li>проблема локальна</li></ul></div>
+  <div class="hyp"><div class="n">02</div><div class="title">Накопленная нагрузка</div><ul><li>объём вырос перед спадом</li><li>несколько показателей просели</li><li>восстановление ухудшилось</li></ul></div>
+  <div class="hyp"><div class="n">03</div><div class="title">Изменение энергетического контекста</div><ul><li>питание изменилось по времени рядом со спадом</li><li>масса тела меняется</li><li>ухудшение не ограничено одним упражнением</li></ul></div>
+</div>
+<div class="question">Какие данные поддерживают гипотезу — и какие ей противоречат?</div>
+</section>
+
+<section class="screen">
+<div class="meta"><span>DECISION / РЕШЕНИЕ</span><span class="soft">37 / 50</span></div>
+<div class="grid2">
+  <div>
+    <div class="oversize">37</div>
+    <div class="kicker">Помощник по гипотезам</div>
+    <h2>Не придумывай гипотезы с нуля</h2>
+    <p class="lead">Начни с того, что уже видно в твоих данных. Ниже — не готовые диагнозы, а стартовые направления для первой проверки.</p>
+
+    <div class="hypgrid guide-grid">
+      <button class="hyp guide-card" type="button" data-guide="local">
+        <div class="n">01</div>
+        <div class="title">Проблема только в одном упражнении</div>
+        <ul>
+          <li>проверь правило прогрессии;</li>
+          <li>место упражнения в тренировке;</li>
+          <li>технику и амплитуду;</li>
+          <li>отдых между тяжёлыми подходами;</li>
+          <li>регулярность выполнения.</li>
+        </ul>
+      </button>
+
+      <button class="hyp guide-card" type="button" data-guide="global">
+        <div class="n">02</div>
+        <div class="title">Просели разные движения</div>
+        <ul>
+          <li>сравни нагрузку до и после спада;</li>
+          <li>посмотри, что изменилось во сне и стрессе;</li>
+          <li>проверь изменения питания и массы тела;</li>
+          <li>сопоставь изменения по времени.</li>
+        </ul>
+      </button>
+
+      <button class="hyp guide-card" type="button" data-guide="unstable">
+        <div class="n">03</div>
+        <div class="title">Программа постоянно менялась</div>
+        <ul>
+          <li>не спеши искать причину;</li>
+          <li>сначала собери более стабильный период;</li>
+          <li>зафиксируй упражнения, объём, порядок и правило прогрессии.</li>
+        </ul>
+      </button>
+
+      <button class="hyp guide-card" type="button" data-guide="nodata">
+        <div class="n">04</div>
+        <div class="title">Данных пока мало</div>
+        <ul>
+          <li>первая гипотеза — не о причине;</li>
+          <li>первая задача — собрать сопоставимые наблюдения;</li>
+          <li>после этого вернись к карте факторов.</li>
+        </ul>
+      </button>
+    </div>
+
+    <div class="rule">Выбери направление, которое лучше всего описывает твою ситуацию. Затем сформулируй 1–3 рабочие гипотезы своими словами.</div>
+  </div>
+
+  <div class="form">
+    <h3>Мои рабочие гипотезы</h3>
+    <div id="guideHint" class="box accent" style="display:none;margin-bottom:14px"></div>
+
+    <label>Гипотеза 1</label><input data-key="hyp1" id="hyp1">
+    <label>Гипотеза 2</label><input data-key="hyp2" id="hyp2">
+    <label>Гипотеза 3</label><input data-key="hyp3" id="hyp3">
+
+    <label>Что проверяю первым?</label><input data-key="first_hyp" id="first_hyp">
+    <label>Почему именно это?</label><textarea data-key="why_first" id="why_first"></textarea>
+
+    <div class="criteria">
+      <div class="cell"><b>Поддержка</b><span>Какие данные уже говорят в пользу этой версии?</span></div>
+      <div class="cell"><b>Противоречия</b><span>Что с ней не сходится?</span></div>
+      <div class="cell"><b>Неизвестно</b><span>Каких данных пока не хватает?</span></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="test" class="screen dark">
+<div class="meta"><span>METHOD / МЕТОД</span><span class="soft">38 / 50</span></div>
+<div class="kicker">Первая проверка</div>
+<div class="bigmethod">TEST PLAN <span class="framework-ru">/ ПЛАН ПРОВЕРКИ</span></div>
+<p class="lead">По возможности меняй один основной фактор и фиксируй остальные значимые изменения.</p>
+<div class="flow test-plan-flow">
+  <span class="step">1 · Что меняю</span><i>→</i>
+  <span class="step">2 · Что оставляю сопоставимым</span><i>→</i>
+  <span class="step">3 · Что отслеживаю</span><i>→</i>
+  <span class="step">4 · Когда пересматриваю решение</span>
+</div>
+<div class="box accent"><b>ВАЖНО</b><br><small>Если после изменения результат сдвинулся, это поддерживает гипотезу. Это не доказывает, что ты установил единственную причину.</small></div>
+<div class="footer"><span>38 / Method</span><span>Меньше меняй. Больше понимай.</span></div>
+</section>
+
+<section class="screen dark">
+<div class="meta"><span>SCENARIOS / СЦЕНАРИИ</span><span class="soft">39 / 50</span></div>
+<div class="grid2">
+  <div><div class="oversize">39</div><div class="kicker">Тренировка решений</div><h2>Сначала реши сам</h2></div>
+  <div>
+    <p class="lead">В следующих сценариях не ищи «правильный ответ» по одному признаку.</p>
+    <div class="rule">Твоя задача: определить масштаб проблемы, сформулировать рабочую гипотезу и выбрать первую проверку.</div>
+    <div class="box accent"><b>ПРАВИЛО</b><br><small>Сначала зафиксируй своё решение. Только потом открывай разбор.</small></div>
+  </div>
+</div>
+</section>
+
+<section class="screen">
+<div class="meta"><span>CASE 01 / СЦЕНАРИЙ 01</span><span class="soft">40 / 50</span></div>
+<div class="kicker">Сценарий</div><h2>Стоит только жим</h2>
+<div class="casefacts">
+  <div class="fact"><b>Жим</b><span>80×8 → 80×8 → 80×7</span></div>
+  <div class="fact"><b>Тяга</b><span>продолжает прогрессировать</span></div>
+  <div class="fact"><b>Ноги</b><span>без заметного спада</span></div>
+  <div class="fact"><b>Программа</b><span>в целом выполняется стабильно</span></div>
+  <div class="fact"><b>Прогрессия</b><span>правило по жиму непонятно</span></div>
+</div>
+<div class="question">Что бы ты проверил первым?</div>
+<div class="choose" data-case="40">
+  <div class="option"><b>A</b>Сон и стресс</div>
+  <div class="option"><b>B</b>Систему прогрессии в жиме</div>
+  <div class="option"><b>C</b>Полностью сменить программу</div>
+</div>
+<div class="case-choice-status" id="choiceStatus40"></div><div class="reveal" id="reveal40"><strong>Разбор</strong>Локальный характер проблемы и отсутствие понятного правила следующего шага делают систему прогрессии логичной первой проверкой. Это не доказывает причину — но хорошо сужает эксперимент.</div>
+</section>
+
+<section class="screen dark">
+<div class="meta"><span>CASE 02 / СЦЕНАРИЙ 02</span><span class="soft">41 / 50</span></div>
+<div class="kicker">Сценарий</div><h2>Проседает почти всё</h2>
+<div class="casefacts">
+  <div class="fact"><b>Жим</b><span>стал тяжелее</span></div>
+  <div class="fact"><b>Присед</b><span>повторения снизились</span></div>
+  <div class="fact"><b>Тяги</b><span>ощущаются тяжелее обычного</span></div>
+  <div class="fact"><b>Недавно</b><span>вырос общий объём и ухудшился сон</span></div>
+</div>
+<div class="question">Какая область заслуживает первой проверки?</div>
+<div class="choose" data-case="41">
+  <div class="option"><b>A</b>Только технику жима</div>
+  <div class="option"><b>B</b>Хронологию нагрузки и восстановления</div>
+  <div class="option"><b>C</b>Сменить упражнения на грудь</div>
+</div>
+<div class="case-choice-status" id="choiceStatus41"></div><div class="reveal" id="reveal41"><strong>Разбор</strong>Когда проседают разные движения, полезнее начать шире: что изменилось в нагрузке и восстановлении перед спадом. Локальная гипотеза хуже объясняет общую картину.</div>
+</section>
+
+<section class="screen">
+<div class="meta"><span>CASE 03 / СЦЕНАРИЙ 03</span><span class="soft">42 / 50</span></div>
+<div class="kicker">Сценарий</div><h2>Вес стоит, но повторения растут</h2>
+<div class="data">80×8 → 80×9 → 80×10</div>
+<div class="question">Это плато?</div>
+<div class="choose" data-case="42">
+  <div class="option"><b>A</b>Да, потому что вес не вырос</div>
+  <div class="option"><b>B</b>Не обязательно: показатель всё ещё меняется</div>
+  <div class="option"><b>C</b>Нужно срочно добавить объём</div>
+</div>
+<div class="case-choice-status" id="choiceStatus42"></div><div class="reveal" id="reveal42"><strong>Разбор</strong>Если в выбранном диапазоне растут повторения при том же весе, показатель меняется. Сам факт неизменного веса не означает остановку прогресса.</div>
+</section>
+
+<section class="screen dark">
+<div class="meta"><span>CASE 04 / СЦЕНАРИЙ 04</span><span class="soft">43 / 50</span></div>
+<div class="kicker">Сценарий</div><h2>Программа меняется каждую неделю</h2>
+<div class="casefacts">
+  <div class="fact"><b>Неделя 1</b><span>жим лёжа первым</span></div>
+  <div class="fact"><b>Неделя 2</b><span>жим после тяжёлых гантелей</span></div>
+  <div class="fact"><b>Неделя 3</b><span>упражнение заменено</span></div>
+  <div class="fact"><b>Неделя 4</b><span>вернулся жим, но другой объём</span></div>
+</div>
+<div class="question">Что здесь стоит сделать первым?</div>
+<div class="choose" data-case="43">
+  <div class="option"><b>A</b>Объявить плато</div>
+  <div class="option"><b>B</b>Собрать более стабильный период данных</div>
+  <div class="option"><b>C</b>Добавить подходы</div>
+</div>
+<div class="case-choice-status" id="choiceStatus43"></div><div class="reveal" id="reveal43"><strong>Разбор</strong>Сравнивать такие недели трудно: условия постоянно менялись. До поиска причины полезнее получить более стабильный период наблюдений.</div>
+</section>
+
+<section class="screen">
+<div class="meta"><span>CASE 05 / СЦЕНАРИЙ 05</span><span class="soft">44 / 50</span></div>
+<div class="kicker">Сценарий</div><h2>Во время дефицита силовые просели</h2>
+<div class="casefacts">
+  <div class="fact"><b>Цель</b><span>снижение массы тела</span></div>
+  <div class="fact"><b>Масса</b><span>снижается</span></div>
+  <div class="fact"><b>Силовые</b><span>в нескольких упражнениях стали хуже</span></div>
+  <div class="fact"><b>Сон</b><span>примерно без изменений</span></div>
+</div>
+<div class="question">Как сформулировать гипотезу аккуратно?</div>
+<div class="choose" data-case="44">
+  <div class="option"><b>A</b>Дефицит точно является причиной</div>
+  <div class="option"><b>B</b>Изменение энергетического контекста стоит рассматривать как одну из гипотез</div>
+  <div class="option"><b>C</b>Нужно немедленно прекратить дефицит</div>
+</div>
+<div class="case-choice-status" id="choiceStatus44"></div><div class="reveal" id="reveal44"><strong>Разбор</strong>Совпадение по времени и общий характер спада делают энергетический контекст разумной гипотезой. Но по этим данным нельзя устанавливать единственную причину.</div>
+</section>
+
+<section class="screen dark">
+<div class="meta"><span>CASE 06 / СЦЕНАРИЙ 06</span><span class="soft">45 / 50</span></div>
+<div class="grid2">
+  <div>
+    <div class="kicker">Сценарий</div><h2>После изменения стало лучше</h2>
+    <div class="data">80×8 → 80×9 → 80×10</div>
+    <p class="lead">Ты изменил только одно правило прогрессии. Остальные важные условия старался оставить сопоставимыми.</p>
+    <div class="question">Что можно заключить?</div>
+    <div class="choose" data-case="45">
+      <div class="option"><b>A</b>Причина доказана</div>
+      <div class="option"><b>B</b>Результат поддерживает гипотезу</div>
+      <div class="option"><b>C</b>Теперь можно менять ещё три фактора</div>
+    </div>
+  </div>
+  <div>
+    <div class="form">
+      <h3>Моё решение</h3>
+      <label>Что я бы заключил до разбора?</label>
+      <textarea data-key="case45_answer"></textarea>
+      <div class="case-choice-status" id="choiceStatus45"></div><div class="reveal" id="reveal45"><strong>Разбор</strong>Улучшение после одного изменения делает гипотезу более правдоподобной. Но это не контролируемый эксперимент и не доказательство единственной причины.</div>
+    </div>
+  </div>
+</div>
+<div class="footer"><span>45 / Scenario trainer</span><span>Дальше: твой случай.</span></div>
+</section>
+
+
+<section id="protocol" class="screen">
+<div class="meta"><span>WORKSHEET / МОЙ РАЗБОР</span><span class="soft">46 / 50</span></div>
+<div class="grid2">
+  <div>
+    <div class="oversize">46</div>
+    <div class="kicker">Твой случай</div>
+    <h2>Вот что уже собрано</h2>
+    <p class="lead">Мы не просим тебя вводить всё заново. Книга подтягивает ответы из предыдущих разделов.</p>
+
+    <div class="protocol-readiness" id="protocolReadiness"><b>ГОТОВНОСТЬ ПРОТОКОЛА</b><span>Проверяем заполненные данные…</span></div>
+<div class="summary-card">
+      <div class="summary-row"><b>Показатель</b><span data-summary="metric">—</span></div>
+      <div class="summary-row"><b>Картина</b><span data-summary="metric_pattern">—</span></div>
+      <div class="summary-row"><b>Выполнение программы</b><span data-summary="adherence">—</span></div>
+      <div class="summary-row"><b>Правило прогрессии</b><span data-summary="progression_rule">—</span></div>
+      <div class="summary-row"><b>Что изменилось в тренировках</b><span data-summary="training_changes">—</span></div>
+      <div class="summary-row"><b>Восстановление / стресс</b><span data-summary="recovery_changes">—</span></div>
+      <div class="summary-row"><b>Питание</b><span data-summary="nutrition_changes">—</span></div>
+      <div class="summary-row"><b>Первая гипотеза</b><span data-summary="first_hyp">—</span></div>
+    </div>
+  </div>
+
+  <div class="form">
+    <h3>Что ещё нужно уточнить</h3>
+    <label>Какие данные особенно важны для моего решения?</label>
+    <textarea data-key="own_evidence"></textarea>
+
+    <label>Есть ли важное изменение, которое я ещё не зафиксировал?</label>
+    <textarea data-key="own_timeline"></textarea>
+
+    <div class="box accent">
+      <b>ЗАЧЕМ ЭТО НУЖНО</b><br>
+      <small>Экран 46 собирает твой путь в один протокол. Ниже останется выбрать конкретную проверку и затем обновить решение по новым данным.</small>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section class="screen dark">
+<div class="meta"><span>DECISION / РЕШЕНИЕ</span><span class="soft">47 / 50</span></div>
+<div class="grid2">
+  <div>
+    <div class="kicker">Первый тест</div>
+    <h2>Что ты меняешь первым?</h2>
+    <div class="question">Выбери основной фактор, связанный с наиболее обоснованной рабочей гипотезой.</div>
+    <div class="rule">По возможности меняй один основной фактор и фиксируй остальные значимые изменения.</div>
+  </div>
+  <div class="form">
+    <h3>Мой первый тест</h3>
+    <label>Рабочая гипотеза</label><input data-key="test_hypothesis" id="test_hypothesis">
+    <label>Один основной фактор, который меняю</label><textarea data-key="one_change"></textarea>
+    <label>Что я оставляю прежним?</label><textarea data-key="keep_constant"></textarea>
+    <label>Что буду отслеживать?</label><textarea data-key="track_metrics"></textarea>
+  </div>
+</div>
+<div class="footer"><span>47 / Decision</span><span>Один основной фактор. Ясное наблюдение.</span></div>
+</section>
+
+<section class="screen">
+<div class="meta"><span>TEST / ПРОВЕРКА</span><span class="soft">48 / 50</span></div>
+<div class="grid2">
+  <div>
+    <div class="oversize">48</div>
+    <div class="kicker">Период проверки</div>
+    <h2>Сколько тестировать?</h2>
+    <p class="lead">Универсального числа тренировок для любой гипотезы нет.</p>
+  </div>
+  <div>
+    <div class="timeline">
+      <div class="cell"><b>СТАРТ</b><p>Зафиксируй исходные условия и показатель.</p></div>
+      <div class="cell"><b>ВО ВРЕМЯ</b><p>Сохраняй важные условия сопоставимыми и собирай данные.</p></div>
+      <div class="cell"><b>КОНТРОЛЬ</b><p>Проверь, появились ли новые данные, которых достаточно для следующего решения.</p></div>
+    </div>
+    <div class="box accent"><b>UX-ПРАВИЛО</b><br><small>Можно поставить контрольную точку через 7 дней, чтобы не потерять эксперимент. Это не физиологический порог и не срок, после которого обязан появиться результат.</small></div>
+  </div>
+</div>
+</section>
+
+<section class="screen">
+<div class="meta"><span>REASSESS / ПЕРЕОЦЕНКА</span><span class="soft">49 / 50</span></div>
+<div class="kicker">После теста</div><h2>Что произошло?</h2>
+<div class="outcomes">
+  <div class="cell">
+    <h3>СТАЛО ЛУЧШЕ</h3>
+    <p>Гипотеза получила дополнительную поддержку.</p>
+    <small>Продолжай собирать данные. Не превращай улучшение в доказательство единственной причины.</small>
+  </div>
+  <div class="cell">
+    <h3>БЕЗ ИЗМЕНЕНИЙ</h3>
+    <p>Пересмотри гипотезу и проверь, достаточно ли информативен был тест.</p>
+    <small>Следующее решение должно опираться на новые данные.</small>
+  </div>
+  <div class="cell">
+    <h3>СТАЛО ХУЖЕ</h3>
+    <p>Вернись к карте факторов и проверь альтернативную гипотезу.</p>
+    <small>Если изменение обратимо, верни прежние условия.</small>
+  </div>
+</div>
+<div class="form" style="margin-top:22px">
+  <h3>Мой результат</h3>
+  <label>Что изменилось после теста?</label><textarea data-key="test_result"></textarea>
+  <label>Что это говорит о моей гипотезе?</label><textarea data-key="hypothesis_update"></textarea>
+  <label>Какое следующее решение?</label><textarea data-key="next_decision"></textarea>
+  <div class="actions"><button id="copySummary">Скопировать мой протокол</button><button id="resetAll">Сбросить ответы</button></div>
+</div>
+</section>
+
+<section class="screen dark">
+<div class="meta"><span>METHOD / МЕТОД</span><span class="soft">50 / 50</span></div>
+<div class="kicker">Training OS</div>
+<div class="bigmethod">ДАННЫЕ<br>→ МАСШТАБ<br>→ ГИПОТЕЗА<br>→ ПРОВЕРКА</div>
+<p class="lead">Финальная схема нужна не для поиска «единственной причины», а для выбора следующего обоснованного шага.</p>
+<div class="flow">
+  <span class="stepbox">Собери данные</span><i>→</i>
+  <span class="stepbox">Определи масштаб</span><i>→</i>
+  <span class="stepbox">Сформулируй гипотезу</span><i>→</i>
+  <span class="stepbox">Проведи проверку</span><i>→</i>
+  <span class="stepbox">Обнови решение</span>
+</div>
+<div class="rule">СЛЕДУЮЩИЙ ШАГ ДОЛЖЕН БЫТЬ ОБЪЯСНИМЫМ.</div>
+<div class="footer"><span>50 / 50</span><span>ONE CHANGE → TEST → REASSESS / ОДИН ОСНОВНОЙ ФАКТОР → ПРОВЕРКА → ПЕРЕОЦЕНКА</span></div>
+</section>
+</main>
 <script>
-(async()=>{
-  try{
-    const files=['book.part1.txt','book.part2.txt','book.part3.txt','book.part4.txt','book.part5.txt'];
-    const parts=await Promise.all(files.map(name=>fetch(name,{cache:'no-store'}).then(r=>{
-      if(!r.ok) throw new Error(name);
-      return r.text();
-    })));
-    const b64=parts.join('').replace(/\s+/g,'');
-    const raw=atob(b64);
-    const bytes=new Uint8Array(raw.length);
-    for(let i=0;i<raw.length;i++) bytes[i]=raw.charCodeAt(i);
-    const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
-    const html=await new Response(stream).text();
-    document.open();
-    document.write(html);
-    document.close();
-  }catch(err){
-    document.querySelector('.wrap').innerHTML='<div><b>Не удалось открыть книгу</b><br><small>Обнови страницу или открой её в современном браузере.</small></div>';
-    console.error(err);
+
+const KEY='training_os_editorial_v1';
+
+function getData(){
+  try{return JSON.parse(localStorage.getItem(KEY)||'{}')}
+  catch(e){return {}}
+}
+function saveField(el){
+  const d=getData();
+  d[el.dataset.key]=el.value;
+  localStorage.setItem(KEY,JSON.stringify(d));
+}
+function loadFields(){
+  const d=getData();
+  document.querySelectorAll('[data-key]').forEach(el=>{
+    if(d[el.dataset.key]!=null) el.value=d[el.dataset.key];
+  });
+}
+document.addEventListener('input',e=>{
+  if(e.target && e.target.dataset && e.target.dataset.key) saveField(e.target);
+});
+
+document.querySelectorAll('.choose').forEach(group=>{
+  const caseId=group.dataset.case;
+  const restore=()=>{
+    const d=getData();
+    const saved=d['case_'+caseId];
+    if(!saved) return;
+    group.querySelectorAll('.option').forEach(x=>{
+      x.classList.toggle('active', x.textContent.trim()===saved);
+    });
+    const r=document.getElementById('reveal'+caseId);
+    if(r) r.classList.add('show');
+    const s=document.getElementById('choiceStatus'+caseId);
+    if(s){s.textContent='Твой выбор: '+saved;s.classList.add('show');}
+  };
+  group.addEventListener('click',e=>{
+    const opt=e.target.closest('.option');
+    if(!opt) return;
+    group.querySelectorAll('.option').forEach(x=>x.classList.remove('active'));
+    opt.classList.add('active');
+
+    const d=getData();
+    d['case_'+caseId]=opt.textContent.trim();
+    localStorage.setItem(KEY,JSON.stringify(d));
+
+    const s=document.getElementById('choiceStatus'+caseId);
+    if(s){s.textContent='Твой выбор: '+opt.textContent.trim();s.classList.add('show');}
+    const r=document.getElementById('reveal'+caseId);
+    if(r) r.classList.add('show');
+  });
+  restore();
+});
+
+const copyBtn=document.getElementById('copySummary');
+if(copyBtn){
+  copyBtn.addEventListener('click',async function(){
+    const d=getData();
+    const txt=[
+      'TRAINING OS — МОЙ ПРОТОКОЛ',
+      '',
+      'Показатель: '+(d.metric||'—'),
+      'Картина: '+(d.metric_pattern||'—'),
+      'Данные: '+(d.own_evidence||'—'),
+      'Выполнение программы: '+(d.adherence||'—'),
+      'Правило прогрессии: '+(d.progression_rule||'—'),
+      'Изменения в тренировках: '+(d.training_changes||'—'),
+      'Восстановление / стресс: '+(d.recovery_changes||'—'),
+      'Питание: '+(d.nutrition_changes||'—'),
+      '',
+      'Рабочая гипотеза: '+(d.test_hypothesis||'—'),
+      'Одно изменение: '+(d.one_change||'—'),
+      'Что оставляю прежним: '+(d.keep_constant||'—'),
+      'Что отслеживаю: '+(d.track_metrics||'—'),
+      '',
+      'Результат: '+(d.test_result||'—'),
+      'Обновление гипотезы: '+(d.hypothesis_update||'—'),
+      'Следующее решение: '+(d.next_decision||'—')
+    ].join('\n');
+
+    try{
+      await navigator.clipboard.writeText(txt);
+      const old=this.textContent;
+      this.textContent='Скопировано';
+      setTimeout(()=>this.textContent=old,1400);
+    }catch(e){
+      alert(txt);
+    }
+  });
+}
+
+const resetBtn=document.getElementById('resetAll');
+if(resetBtn){
+  resetBtn.addEventListener('click',()=>{
+    if(confirm('Сбросить все сохранённые ответы Training OS?')){
+      localStorage.removeItem(KEY);
+      document.querySelectorAll('[data-key]').forEach(el=>el.value='');
+      document.querySelectorAll('.option.active,.guide-card.active').forEach(el=>el.classList.remove('active'));
+      document.querySelectorAll('.reveal.show,.case-choice-status.show').forEach(el=>el.classList.remove('show'));
+      const gh=document.getElementById('guideHint'); if(gh) gh.style.display='none';
+      refreshSummary();
+    }
+  });
+}
+
+
+const guides={
+  local:{
+    hint:'Локальная картина: начни с факторов, связанных именно с этим упражнением.',
+    h1:'Проверить правило прогрессии в проблемном упражнении',
+    h2:'Проверить условия выполнения: порядок, отдых, техника',
+    h3:'Проверить, насколько стабильно упражнение выполнялось'
+  },
+  global:{
+    hint:'Общая картина: начни с хронологии нагрузки, восстановления и других изменений.',
+    h1:'Проверить, что изменилось в общей тренировочной нагрузке перед спадом',
+    h2:'Проверить изменения сна, стресса и восстановления',
+    h3:'Проверить изменения питания и энергетического контекста'
+  },
+  unstable:{
+    hint:'Условия слишком часто менялись: сначала нужен более стабильный период наблюдений.',
+    h1:'Собрать период сопоставимых тренировок без постоянной смены условий',
+    h2:'Зафиксировать понятное правило прогрессии',
+    h3:'Только после этого оценивать наличие устойчивого спада'
+  },
+  nodata:{
+    hint:'Данных пока недостаточно: первая задача — не искать причину, а улучшить качество наблюдений.',
+    h1:'Собрать несколько сопоставимых тренировок',
+    h2:'Зафиксировать целевой показатель и условия его выполнения',
+    h3:'Вернуться к карте факторов после появления повторяющейся картины'
   }
+};
+
+function applyGuide(type, fillBlanks=true){
+  const card=document.querySelector('.guide-card[data-guide="'+type+'"]');
+  const g=guides[type];
+  if(!card || !g) return;
+  document.querySelectorAll('.guide-card').forEach(x=>x.classList.remove('active'));
+  card.classList.add('active');
+  const hint=document.getElementById('guideHint');
+  if(hint){hint.style.display='block';hint.textContent=g.hint;}
+  if(fillBlanks){
+    const h1=document.getElementById('hyp1');
+    const h2=document.getElementById('hyp2');
+    const h3=document.getElementById('hyp3');
+    if(h1 && !h1.value) h1.value=g.h1;
+    if(h2 && !h2.value) h2.value=g.h2;
+    if(h3 && !h3.value) h3.value=g.h3;
+    [h1,h2,h3].forEach(el=>{if(el && el.dataset.key) saveField(el);});
+  }
+}
+document.querySelectorAll('.guide-card').forEach(card=>{
+  card.addEventListener('click',()=>{
+    const d=getData();
+    d.guide_type=card.dataset.guide;
+    localStorage.setItem(KEY,JSON.stringify(d));
+    applyGuide(card.dataset.guide,true);
+    refreshSummary();
+  });
+});
+const savedGuide=getData().guide_type;
+if(savedGuide) applyGuide(savedGuide,false);
+
+loadFields();
+
+
+function refreshSummary(){
+  const d=getData();
+  document.querySelectorAll('[data-summary]').forEach(el=>{
+    const v=d[el.dataset.summary];
+    el.textContent=(v && String(v).trim()) ? v : '—';
+  });
+
+  const required=[
+    ['metric','что именно остановилось'],
+    ['metric_pattern','какая картина повторяется'],
+    ['adherence','насколько стабильно выполнялась программа'],
+    ['first_hyp','какую гипотезу проверяешь первой']
+  ];
+  const missing=required.filter(([k])=>!d[k] || !String(d[k]).trim());
+  const ready=document.getElementById('protocolReadiness');
+  if(ready){
+    ready.innerHTML = missing.length
+      ? '<b>ГОТОВНОСТЬ ПРОТОКОЛА</b><span>Не хватает: '+missing.map(x=>x[1]).join(', ')+'. Можно продолжать, но итог будет полезнее после заполнения этих пунктов.</span>'
+      : '<b>ГОТОВНОСТЬ ПРОТОКОЛА</b><span>Основные данные собраны. Можно переходить к первой проверке.</span>';
+  }
+
+  // Carry chosen hypothesis forward unless user already edited the test field.
+  const testHyp=document.getElementById('test_hypothesis');
+  if(testHyp && !testHyp.value && d.first_hyp){
+    testHyp.value=d.first_hyp;
+    saveField(testHyp);
+  }
+}
+
+document.addEventListener('input',e=>{
+  if(e.target && e.target.dataset && e.target.dataset.key){
+    setTimeout(refreshSummary,0);
+  }
+});
+
+const navToggle=document.querySelector('.book-nav__toggle');
+const navPanel=document.querySelector('.book-nav__panel');
+if(navToggle && navPanel){
+  navToggle.addEventListener('click',()=>{
+    const open=navPanel.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded',String(open));
+  });
+  navPanel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    navPanel.classList.remove('open');navToggle.setAttribute('aria-expanded','false');
+  }));
+}
+const topBtn=document.querySelector('.to-top');
+if(topBtn){
+  topBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+  const update=()=>{topBtn.style.opacity=window.scrollY>500?'1':'0';topBtn.style.pointerEvents=window.scrollY>500?'auto':'none'};
+  window.addEventListener('scroll',update,{passive:true});update();
+}
+setTimeout(refreshSummary,0);
+
+
+window.addEventListener('resize',()=>{
+  if(window.innerWidth>820 && navPanel){
+    navPanel.classList.remove('open');
+    if(navToggle) navToggle.setAttribute('aria-expanded','false');
+  }
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape' && navPanel){
+    navPanel.classList.remove('open');
+    if(navToggle) navToggle.setAttribute('aria-expanded','false');
+  }
+});
+
+
+window.addEventListener('orientationchange',()=>{
+  if(navPanel){
+    navPanel.classList.remove('open');
+    if(navToggle) navToggle.setAttribute('aria-expanded','false');
+  }
+  setTimeout(()=>window.dispatchEvent(new Event('resize')),120);
+});
+
+
+</script>
+
+<script>
+(function(){
+  var btn=document.getElementById('toTop');
+  if(!btn) return;
+  btn.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
 })();
 </script>
+
 </body>
 </html>
